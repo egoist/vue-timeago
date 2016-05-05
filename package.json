@@ -19,7 +19,7 @@
     "build:umd": "rolling build -e ./src/index.js -d ./index.umd.js --format umd -n VueTimeago",
     "example": "vbuild --dev -e example",
     "example:build": "vbuild -e example -t VueTimeago",
-    "publish:demo": "npm run example:build && gh-pages dist"
+    "publish:demo": "npm run example:build && gh-pages -d ./dist"
   },
   "main": "index.js",
   "files": [
