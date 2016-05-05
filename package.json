@@ -24,10 +24,13 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "index.umd.js"
+    "index.umd.js",
+    "locales"
   ],
   "keywords": [
-    ""
+    "timeago",
+    "vue",
+    "filter"
   ],
   "devDependencies": {
     "ava": "latest",
