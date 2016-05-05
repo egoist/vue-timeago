@@ -9,10 +9,10 @@ function pluralOrSingular(data, locale) {
   const count = Math.round(data)
   if (Array.isArray(locale)) {
     return count > 1
-      ? count + locale[1]
-      : count + locale[0]
+      ? locale[1].replace(/%s/, count)
+      : locale[0].replace(/%s/, count)
   }
-  return count + locale
+  return locale.replace(/%s/, count)
 }
 
 export default function install(Vue, {
@@ -28,7 +28,7 @@ export default function install(Vue, {
   function timeago(then) {
     then = new Date(then).getTime()
     const now = new Date().getTime()
-    const seconds = Math.round(Math.abs(now / 1000 - then / 1000))
+    const seconds = Math.round(now / 1000 - then / 1000)
 
     const ret
       = seconds < MINUTE
