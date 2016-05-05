@@ -35,7 +35,7 @@ A very basic demo: https://egoistian.com/vue-timeago
 
 ## i18n support
 
-Currently it has `en_US` and `zh_CN` support, see [/locales](https://github.com/egoist/aimer/blob/master/locales), feel free to submit a Pull Request to help us support more languages!
+Currently it has `en_US` and `zh_CN` support, see [/locales](https://github.com/egoist/vue-timeago/blob/master/locales), feel free to submit a Pull Request to help us support more languages!
 
 ## Development
 
