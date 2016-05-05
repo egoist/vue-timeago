@@ -1,0 +1,47 @@
+{
+  "name": "vue-timeago",
+  "version": "0.0.0",
+  "description": "A timeago filter for Vue.",
+  "license": "MIT",
+  "repository": "egoist/vue-timeago",
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com",
+    "url": "github.com/egoist"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo src/*.js",
+    "build:all": "npm run build && npm run build:umd",
+    "build": "rolling build -e ./src/index.js -d ./index.js",
+    "build:umd": "rolling build -e ./src/index.js -d ./index.umd.js --format umd -n VueTimeago",
+    "example": "vbuild --dev -e example",
+    "example:build": "vbuild -e example -t VueTimeago",
+    "publish:demo": "npm run example:build && gh-pages dist"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.umd.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "devDependencies": {
+    "ava": "latest",
+    "xo": "latest"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": 2,
+    "rules": {
+      "no-nested-ternary": 0,
+      "operator-linebreak": [
+        2,
+        "before"
+      ]
+    }
+  }
+}
