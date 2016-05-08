@@ -50,7 +50,11 @@ export default function install(Vue, {
     },
     computed: {
       currentLocale() {
-        return locales[this.locale || locale]
+        const current = locales[this.locale || locale]
+        if (!current) {
+          return locales[locale]
+        }
+        return current
       },
       timeago() {
         const seconds = this.now / 1000 - this.since / 1000
@@ -79,9 +83,6 @@ export default function install(Vue, {
       }
     },
     ready() {
-      if (!this.currentLocale) {
-        throw new Error(`Make sure you have included locale ${this.currentLocale} when initializing vue-timeago`)
-      }
       if (this.autoUpdate) {
         this.update()
       }

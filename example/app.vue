@@ -39,7 +39,6 @@
           {{ lang }}
         </option>
       </select>
-      Auto-update time in {{ remain }} seconds.
     </header>
     <div class="people">
       <div class="person" v-for="person in people">
@@ -47,7 +46,7 @@
         <div class="meta">
           was born at
           <timeago
-            :auto-update="5"
+            :auto-update="1"
             :max-time="86400 * 365"
             :locale="currentLang"
             class="timeago"
@@ -88,7 +87,6 @@
   export default {
     data() {
       return {
-        remain: 5,
         people,
         currentLang: qs().lang || 'en-US',
         langs: [
@@ -96,24 +94,12 @@
         ]
       }
     },
-    ready() {
-      this.updateRemain()
-    },
     methods: {
       handleChange(e) {
         this.currentLang = e.target.value
       },
       format(val) {
         return ``
-      },
-      updateRemain() {
-        setInterval(() => {
-          if (this.remain === 0) {
-            this.remain = 5
-            return
-          }
-          this.remain--
-        }, 1000)
       }
     }
   }
