@@ -4,7 +4,7 @@ import app from './app'
 import qs from './qs'
 
 Vue.use(VueTimeago, {
-  locale: require(`../locales/${qs().lang || 'en_US'}.json`)
+  locale: require(`../locales/${qs().lang || navigator.language}.json`)
 })
 
 new Vue({
