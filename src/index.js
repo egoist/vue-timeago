@@ -17,7 +17,7 @@ function pluralOrSingular(data, locale) {
 
 function formatTime(time) {
   const d = new Date(time)
-  return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`
+  return d.toLocaleString()
 }
 
 export default function install(Vue, {
