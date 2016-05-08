@@ -33,7 +33,9 @@ export default function install(Vue, {
     props: {
       since: {
         required: true,
-        coerce(val) {return new Date(val).getTime()}
+        coerce(val) {
+          return new Date(val).getTime()
+        }
       },
       locale: String,
       maxTime: Number,
