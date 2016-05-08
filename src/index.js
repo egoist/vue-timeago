@@ -15,6 +15,11 @@ function pluralOrSingular(data, locale) {
   return locale.replace(/%s/, count)
 }
 
+function formatTime(time) {
+  const d = new Date(time)
+  return d.toLocaleString()
+}
+
 export default function install(Vue, {
   name = 'timeago',
   locale = 'en-US',
@@ -28,49 +33,66 @@ export default function install(Vue, {
     props: {
       since: {
         required: true,
-        coerce(val) {return new Date(val).getTime()}
+        coerce(val) {
+          return new Date(val).getTime()
+        }
       },
       locale: String,
-      maxTime: null,
-      autoUpdate: null
+      maxTime: Number,
+      autoUpdate: Number,
+      format: Function
     },
-    template: '<span v-text="timeago(since)"></span>',
+    template: '<span v-text="timeago"></span>',
+    data() {
+      return {
+        now: new Date().getTime()
+      }
+    },
+    computed: {
+      currentLocale() {
+        const current = locales[this.locale || locale]
+        if (!current) {
+          return locales[locale]
+        }
+        return current
+      },
+      timeago() {
+        const seconds = this.now / 1000 - this.since / 1000
+
+        if (this.maxTime && seconds > this.maxTime) {
+          clearInterval(this.interval)
+          return this.format ? this.format(this.since) : formatTime(this.since)
+        }
+
+        const ret
+          = seconds < MINUTE
+          ? pluralOrSingular(seconds, this.currentLocale[0])
+          : seconds < HOUR
+          ? pluralOrSingular(seconds / MINUTE, this.currentLocale[1])
+          : seconds < DAY
+          ? pluralOrSingular(seconds / HOUR, this.currentLocale[2])
+          : seconds < WEEK
+          ? pluralOrSingular(seconds / DAY, this.currentLocale[3])
+          : seconds < MONTH
+          ? pluralOrSingular(seconds / WEEK, this.currentLocale[4])
+          : seconds < YEAR
+          ? pluralOrSingular(seconds / MONTH, this.currentLocale[5])
+          : pluralOrSingular(seconds / YEAR, this.currentLocale[6])
+
+        return ret
+      }
+    },
     ready() {
       if (this.autoUpdate) {
         this.update()
       }
     },
     methods: {
-      timeago() {
-        const now = new Date().getTime()
-        const seconds = Math.round(now / 1000 - this.since / 1000)
-
-        const currentLocale = locales[this.locale || locale]
-        if (!currentLocale) {
-          throw new Error(`Make sure you have included locale ${this.locale || locale} when initializing vue-timeago`)
-        }
-
-        const ret
-          = seconds < MINUTE
-          ? pluralOrSingular(seconds, currentLocale[0])
-          : seconds < HOUR
-          ? pluralOrSingular(seconds / MINUTE, currentLocale[1])
-          : seconds < DAY
-          ? pluralOrSingular(seconds / HOUR, currentLocale[2])
-          : seconds < WEEK
-          ? pluralOrSingular(seconds / DAY, currentLocale[3])
-          : seconds < MONTH
-          ? pluralOrSingular(seconds / WEEK, currentLocale[4])
-          : seconds < YEAR
-          ? pluralOrSingular(seconds / MONTH, currentLocale[5])
-          : pluralOrSingular(seconds / YEAR, currentLocale[6])
-
-        return ret
-      },
       update() {
-        setInterval(() => {
-
-        }, )
+        const period = this.autoUpdate * 1000
+        this.interval = setInterval(() => {
+          this.now = new Date().getTime()
+        }, period)
       }
     }
   }

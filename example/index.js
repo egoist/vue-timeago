@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueTimeago from '../src'
 import app from './app'
 import qs from './qs'
-
+Vue.config.debug = true
 Vue.use(VueTimeago, {
   locale: 'en-US',
   locales: {
