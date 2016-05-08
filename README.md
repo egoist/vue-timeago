@@ -19,7 +19,7 @@ Vue.use(VueTimeago, {
   name: 'timeago', // component name, `timeago` by default
   locale: 'en-US',
   locales: {
-    'en-US': require('vue-timeago/locales/en-US')
+    'en-US': require('vue-timeago/locales/en-US.json')
   }
 })
 ```
@@ -35,8 +35,9 @@ Then in your lovely component:
 <timeago :since="time" :auto-update="60"></timeago>
 
 <!-- max time, time before this will not be converted  -->
+<!-- otherwise use custom formatTime function to format -->
 <!-- 86400 * 365 = a year -->
-<timeago :since="time" :max-time="86400 * 365"></timeago>
+<timeago :since="time" :max-time="86400 * 365" :format="formatTime"></timeago>
 
 <!-- custom locale -->
 <!-- use a different locale instead of the global config -->
