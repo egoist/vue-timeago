@@ -1,6 +1,6 @@
 # vue-timeago [![NPM version](https://img.shields.io/npm/v/vue-timeago.svg)](https://npmjs.com/package/vue-timeago) [![NPM downloads](https://img.shields.io/npm/dm/vue-timeago.svg)](https://npmjs.com/package/vue-timeago) [![Build Status](https://img.shields.io/circleci/project/egoist/vue-timeago/master.svg)](https://circleci.com/gh/egoist/vue-timeago)
 
-> A timeago filter for Vue.
+> A timeago component for Vue.
 
 ## Install
 
@@ -16,8 +16,11 @@ It's also available on NPMCDN: https://npmcdn.com/vue-timeago/index.umd.js
 import VueTimeago from 'vue-timeago'
 
 Vue.use(VueTimeago, {
-  name: 'timeago', // filter name, `timeago` by default
-  locale: require('vue-timeago/locales/en_US.json')
+  name: 'timeago', // component name, `timeago` by default
+  locale: 'en-US',
+  locales: {
+    'en-US': require('vue-timeago/locales/en-US')
+  }
 })
 ```
 
@@ -26,7 +29,9 @@ Then in your lovely component:
 ```html
 <template>
   <div class="component">
-    <div class="item">{{ createdAt | timeago }}</div>
+    <div class="item">
+      <timeago :since="time"></timeago>
+    </div>
   </div>
 </template>
 ```

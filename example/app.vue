@@ -1,12 +1,12 @@
 <style>
-  .repos {
+  .people {
     margin-top: 20px;
   }
-  .repo {
+  .person {
     font-family: Helvetica;
     font-size: 1.4rem;
     & .name {
-      width: 350px;
+      width: 100px;
       display: inline-block;
     }
     & .meta {
@@ -25,11 +25,11 @@
         {{ lang }}
       </option>
     </select>
-    <div class="repos">
-      <div class="repo" v-for="repo in repos">
-        <a class="name" :href="repo.html_url">{{ repo.full_name  }}</a>
+    <div class="people">
+      <div class="person" v-for="person in people">
+        <span class="name">{{ person.name }}</span>
         <div class="meta">
-          is created at <span class="timeago">{{ repo.created_at | timeago }}</span>
+          was born at <timeago :locale="currentLang" class="timeago" :since="person.birth"></timeago>
         </div>
       </div>
     </div>
@@ -37,22 +37,37 @@
 </template>
 
 <script>
-  import repos from './repos.json'
   import qs from './qs'
+
+  const now = new Date().getTime()
+  const people = [
+    {
+      name: 'egoist',
+      birth: now - 60000
+    },
+    {
+      name: 'chelly',
+      birth: now - 60000 * 22
+    },
+    {
+      name: 'aimer',
+      birth: now - 60000 * 102
+    }
+  ]
 
   export default {
     data() {
       return {
-        repos,
-        currentLang: qs().lang || 'en_US',
+        people,
+        currentLang: qs().lang || 'en-US',
         langs: [
-          'en_US', 'zh_CN', 'zh_TW'
+          'en-US', 'zh-CN', 'zh-TW'
         ]
       }
     },
     methods: {
       handleChange(e) {
-        location.search = `?lang=${e.target.value}`
+        this.currentLang = e.target.value
       }
     }
   }

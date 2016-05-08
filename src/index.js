@@ -17,34 +17,63 @@ function pluralOrSingular(data, locale) {
 
 export default function install(Vue, {
   name = 'timeago',
-  locale = null
+  locale = 'en-US',
+  locales = null
 } = {}) {
-  if (!Array.isArray(locale)) {
-    throw new TypeError('Expected locale to be an array')
+  if (typeof locales !== 'object') {
+    throw new TypeError('Expected locales to have at lease one locale.')
   }
 
-  Vue.filter(name, timeago)
+  const VueTimeago = {
+    props: {
+      since: {
+        required: true,
+        coerce(val) {return new Date(val).getTime()}
+      },
+      locale: String,
+      maxTime: null,
+      autoUpdate: null
+    },
+    template: '<span v-text="timeago(since)"></span>',
+    ready() {
+      if (this.autoUpdate) {
+        this.update()
+      }
+    },
+    methods: {
+      timeago() {
+        const now = new Date().getTime()
+        const seconds = Math.round(now / 1000 - this.since / 1000)
 
-  function timeago(then) {
-    then = new Date(then).getTime()
-    const now = new Date().getTime()
-    const seconds = Math.round(now / 1000 - then / 1000)
+        const currentLocale = locales[this.locale || locale]
+        if (!currentLocale) {
+          throw new Error(`Make sure you have included locale ${this.locale || locale} when initializing vue-timeago`)
+        }
 
-    const ret
-      = seconds < MINUTE
-      ? pluralOrSingular(seconds, locale[0])
-      : seconds < HOUR
-      ? pluralOrSingular(seconds / MINUTE, locale[1])
-      : seconds < DAY
-      ? pluralOrSingular(seconds / HOUR, locale[2])
-      : seconds < WEEK
-      ? pluralOrSingular(seconds / DAY, locale[3])
-      : seconds < MONTH
-      ? pluralOrSingular(seconds / WEEK, locale[4])
-      : seconds < YEAR
-      ? pluralOrSingular(seconds / MONTH, locale[5])
-      : pluralOrSingular(seconds / YEAR, locale[6])
+        const ret
+          = seconds < MINUTE
+          ? pluralOrSingular(seconds, currentLocale[0])
+          : seconds < HOUR
+          ? pluralOrSingular(seconds / MINUTE, currentLocale[1])
+          : seconds < DAY
+          ? pluralOrSingular(seconds / HOUR, currentLocale[2])
+          : seconds < WEEK
+          ? pluralOrSingular(seconds / DAY, currentLocale[3])
+          : seconds < MONTH
+          ? pluralOrSingular(seconds / WEEK, currentLocale[4])
+          : seconds < YEAR
+          ? pluralOrSingular(seconds / MONTH, currentLocale[5])
+          : pluralOrSingular(seconds / YEAR, currentLocale[6])
 
-    return ret
+        return ret
+      },
+      update() {
+        setInterval(() => {
+
+        }, )
+      }
+    }
   }
+
+  Vue.component(name, VueTimeago)
 }
