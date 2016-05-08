@@ -44,9 +44,9 @@
     data() {
       return {
         repos,
-        currentLang: qs().lang || 'en_US',
+        currentLang: qs().lang || navigator.language,
         langs: [
-          'en_US', 'zh_CN', 'zh_TW'
+          'en-US', 'zh-CN', 'zh-TW'
         ]
       }
     },
