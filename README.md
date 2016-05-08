@@ -27,13 +27,20 @@ Vue.use(VueTimeago, {
 Then in your lovely component:
 
 ```html
-<template>
-  <div class="component">
-    <div class="item">
-      <timeago :since="time"></timeago>
-    </div>
-  </div>
-</template>
+<!-- simple usage -->
+<!-- time is a dateString that can be parsed by Date.parse() -->
+<timeago :since="time"></timeago>
+
+<!-- Auto-update time every 60 seconds -->
+<timeago :since="time" :auto-update="60"></timeago>
+
+<!-- max time, time before this will not be converted  -->
+<!-- 86400 * 365 = a year -->
+<timeago :since="time" :max-time="86400 * 365"></timeago>
+
+<!-- custom locale -->
+<!-- use a different locale instead of the global config -->
+<timeago :since="time" locale="zh-CN"></timeago>
 ```
 
 A very basic demo: https://egoistian.com/vue-timeago
