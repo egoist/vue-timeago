@@ -8,7 +8,8 @@ Vue.use(VueTimeago, {
   locales: {
     'en-US': require('../locales/en-US.json'),
     'zh-CN': require('../locales/zh-CN.json'),
-    'zh-TW': require('../locales/zh-TW.json')
+    'zh-TW': require('../locales/zh-TW.json'),
+    'hu-HU': require('../locales/hu-HU.json')
   }
 })
 

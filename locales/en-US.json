@@ -1,4 +1,5 @@
 [
+  "just now",
   ["%s second ago", "%s seconds ago"],
   ["%s minute ago", "%s minutes ago"],
   ["%s hour ago", "%s hours ago"],

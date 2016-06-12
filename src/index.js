@@ -6,6 +6,9 @@ const MONTH = DAY * 30
 const YEAR = DAY * 365
 
 function pluralOrSingular(data, locale) {
+  if (data === 'just now') {
+    return locale
+  }
   const count = Math.round(data)
   if (Array.isArray(locale)) {
     return count > 1
@@ -65,19 +68,21 @@ export default function install(Vue, {
         }
 
         const ret
-          = seconds < MINUTE
-          ? pluralOrSingular(seconds, this.currentLocale[0])
+          = seconds <= 5
+          ? pluralOrSingular('just now', this.currentLocale[0])
+          : seconds < MINUTE
+          ? pluralOrSingular(seconds, this.currentLocale[1])
           : seconds < HOUR
-          ? pluralOrSingular(seconds / MINUTE, this.currentLocale[1])
+          ? pluralOrSingular(seconds / MINUTE, this.currentLocale[2])
           : seconds < DAY
-          ? pluralOrSingular(seconds / HOUR, this.currentLocale[2])
+          ? pluralOrSingular(seconds / HOUR, this.currentLocale[3])
           : seconds < WEEK
-          ? pluralOrSingular(seconds / DAY, this.currentLocale[3])
+          ? pluralOrSingular(seconds / DAY, this.currentLocale[4])
           : seconds < MONTH
-          ? pluralOrSingular(seconds / WEEK, this.currentLocale[4])
+          ? pluralOrSingular(seconds / WEEK, this.currentLocale[5])
           : seconds < YEAR
-          ? pluralOrSingular(seconds / MONTH, this.currentLocale[5])
-          : pluralOrSingular(seconds / YEAR, this.currentLocale[6])
+          ? pluralOrSingular(seconds / MONTH, this.currentLocale[6])
+          : pluralOrSingular(seconds / YEAR, this.currentLocale[7])
 
         return ret
       }
