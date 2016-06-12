@@ -15,8 +15,8 @@
   "scripts": {
     "test": "xo src/*.js",
     "build:all": "npm run build && npm run build:umd",
-    "build": "rolling build -e ./src/index.js -d ./index.js",
-    "build:umd": "rolling build -e ./src/index.js -d ./index.umd.js --format umd -n VueTimeago",
+    "build": "BUILD_ENV=cjs rollup -c",
+    "build:umd": "BUILD_ENV=umd rollup -c",
     "example": "vbuild --dev -e example",
     "example:build": "vbuild -e example -t VueTimeago",
     "publish:demo": "npm run example:build && gh-pages -d ./dist"
@@ -34,6 +34,9 @@
   ],
   "devDependencies": {
     "ava": "latest",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "rollup": "^0.31.1",
+    "rollup-plugin-babel": "^2.5.1",
     "xo": "latest"
   },
   "xo": {

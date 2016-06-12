@@ -28,7 +28,7 @@ export default function install(Vue, {
   locale = 'en-US',
   locales = null
 } = {}) {
-  if (typeof locales !== 'object') {
+  if (!locales || Object.keys(locales).length === 0) {
     throw new TypeError('Expected locales to have at lease one locale.')
   }
 
