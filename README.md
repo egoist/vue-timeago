@@ -52,7 +52,7 @@ For all supported languages, see [/locales](https://github.com/egoist/vue-timeag
 
 ## Development
 
-I use [rolling](https://github.com/egoist/rolling) to build the cjs version bundle, and use [vbuild](https://github.com/egoist/vbuild) to build the example. Install them globally and then see the npm scripts.
+I use [rollup](https://github.com/rollup/rollup) to build the cjs and umd version bundles, and use [vbuild](https://github.com/egoist/vbuild) to build the example. Install them globally and then see the npm scripts.
 
 ## License
 
