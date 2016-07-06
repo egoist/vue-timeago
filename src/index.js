@@ -60,7 +60,7 @@ export default function install(Vue, {
         return current
       },
       timeago() {
-        const seconds = this.now / 1000 - this.since / 1000
+        const seconds = (this.now / 1000) - (this.since / 1000)
 
         if (this.maxTime && seconds > this.maxTime) {
           clearInterval(this.interval)
