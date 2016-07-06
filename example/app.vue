@@ -90,7 +90,7 @@
         people,
         currentLang: qs().lang || 'en-US',
         langs: [
-          'en-US', 'zh-CN', 'zh-TW', 'hu-HU'
+          'en-US', 'zh-CN', 'zh-TW', 'hu-HU', 'bg-BG'
         ]
       }
     },

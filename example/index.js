@@ -9,7 +9,8 @@ Vue.use(VueTimeago, {
     'en-US': require('../locales/en-US.json'),
     'zh-CN': require('../locales/zh-CN.json'),
     'zh-TW': require('../locales/zh-TW.json'),
-    'hu-HU': require('../locales/hu-HU.json')
+    'hu-HU': require('../locales/hu-HU.json'),
+    'bg-BG': require('../locales/bg-BG.json')
   }
 })
 
