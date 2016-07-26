@@ -1,0 +1,10 @@
+[
+  "agora mesmo",
+  ["%s segundo atrás", "%s segundos atrás"],
+  ["%s minuto atrás", "%s minutos atrás"],
+  ["%s hora atrás", "%s horas atrás"],
+  ["%s dia atrás", "%s dias atrás"],
+  ["%s semana atrás", "%s semanas atrás"],
+  ["%s mês atrás", "%s meses atrás"],
+  ["%s ano atrás", "%s anos atrás"]
+]
