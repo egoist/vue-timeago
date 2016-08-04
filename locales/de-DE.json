@@ -1,0 +1,10 @@
+[
+  "jetzt gerade",
+  ["vor %s Sekunde", "vor %s Sekunden"],
+  ["vor %s Minute", "vor %s Minuten"],
+  ["vor %s Stunde", "vor %s Stunden"],
+  ["vor %s Tag", "vor %s Tagen"],
+  ["vor %s Woche", "vor %s Wochen"],
+  ["vor %s Monat", "vor %s Monaten"],
+  ["vor %s Jahr", "vor %s Jahren"]
+]
