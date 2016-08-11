@@ -1,0 +1,10 @@
+[
+  "à l'instant",
+  ["il y a %s seconde", "il y a %s secondes"],
+  ["il y a %s minute",  "il y a %s minutes"],
+  ["il y a %s heure",   "il y a %s heures"],
+  ["il y a %s jour",    "il y a %s jours"],
+  ["il y a %s semaine", "il y a %s semaines"],
+  ["il y a %s mois",    "il y a %s mois"],
+  ["il y a %s an",      "il y a %s ans"]
+]
