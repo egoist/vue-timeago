@@ -1,0 +1,10 @@
+[
+  "ahora",
+  ["hace %s segundo", "hace %s segundos"],
+  ["hace %s minuto", "hace %s minutos"],
+  ["hace %s hora", "hace %s horas"],
+  ["hace %s día", "hace %s días"],
+  ["hace %s semana", "hace %s semanas"],
+  ["hace %s mes", "hace %s meses"],
+  ["hace %s año", "hace %s años"]
+]
