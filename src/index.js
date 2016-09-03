@@ -101,7 +101,7 @@ export default function install(Vue, {
       }
     },
     beforeDestroy() {
-      clearInterval(this.interval);
+      clearInterval(this.interval)
       this.interval = null
     }
   }
