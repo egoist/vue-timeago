@@ -99,6 +99,10 @@ export default function install(Vue, {
           this.now = new Date().getTime()
         }, period)
       }
+    },
+    beforeDestroy() {
+      clearInterval(this.interval);
+      this.interval = null
     }
   }
 
