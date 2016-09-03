@@ -1,11 +1,14 @@
 # vue-timeago [![NPM version](https://img.shields.io/npm/v/vue-timeago.svg)](https://npmjs.com/package/vue-timeago) [![NPM downloads](https://img.shields.io/npm/dm/vue-timeago.svg)](https://npmjs.com/package/vue-timeago) [![Build Status](https://img.shields.io/circleci/project/egoist/vue-timeago/master.svg)](https://circleci.com/gh/egoist/vue-timeago)
 
-> A timeago component for Vue.
+> A timeago component for Vue 1 and Vue 2.
 
 ## Install
 
 ```bash
+# for Vue 2
 $ npm install --save vue-timeago
+# for Vue 1
+$ npm install --save vue-timeago@2
 ```
 
 It's also available on NPMCDN: https://npmcdn.com/vue-timeago/index.umd.js
@@ -48,7 +51,7 @@ A very basic demo: https://egoistian.com/vue-timeago
 
 ## i18n support
 
-For all supported languages, see [/locales](https://github.com/egoist/vue-timeago/blob/master/locales), feel free to submit a Pull Request to help us support more languages!
+For all supported languages, see [/locales](https://github.com/egoist/vue-timeago/blob/master/locales), it's easy to add a new language support, feel free to submit a Pull Request to help us support more languages!
 
 ## Development
 

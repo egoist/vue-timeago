@@ -45,7 +45,6 @@ export default function install(Vue, {
       autoUpdate: Number,
       format: Function
     },
-    template: '<span v-text="timeago"></span>',
     data() {
       return {
         now: new Date().getTime()
@@ -91,6 +90,9 @@ export default function install(Vue, {
       if (this.autoUpdate) {
         this.update()
       }
+    },
+    render(h) {
+      return h('span', this.timeago)
     },
     methods: {
       update() {

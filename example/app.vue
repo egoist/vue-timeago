@@ -34,6 +34,7 @@
 <template>
   <div class="app">
     <header class="header">
+      Choose your language:
       <select @change="handleChange">
         <option :value="lang" v-for="lang in langs" :selected="lang === currentLang">
           {{ lang }}
@@ -59,6 +60,7 @@
 
 <script>
   import qs from './qs'
+  import locales from './locales'
 
   const now = new Date().getTime()
   const people = [
@@ -89,9 +91,7 @@
       return {
         people,
         currentLang: qs().lang || 'en-US',
-        langs: [
-          'en-US', 'zh-CN', 'zh-TW', 'hu-HU', 'bg-BG'
-        ]
+        langs: Object.keys(locales)
       }
     },
     methods: {
