@@ -1,0 +1,33 @@
+
+body {
+  font-family: Helvetica;
+  margin: 0;
+}
+.header {
+  height: 40px;
+  line-height: 40px;
+  background-color: #f0f0f0;
+  padding: 0 20px
+}
+.header select {
+  margin-right: 10px;
+}
+.people {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+.person {
+  font-size: 1.4rem
+}
+.person .name {
+  width: 150px;
+  display: inline-block;
+}
+.person .meta {
+  display: inline-block;
+}
+.timeago {
+  color: #999;
+}
+
+/*# sourceMappingURL=main.51e2546f6ac90b0ec9851a89fbe58df4.css.map*/
