@@ -14,6 +14,7 @@
   },
   "scripts": {
     "test": "xo src/*.js",
+    "test2": "npm run build:all && npm test",
     "build:all": "npm run build && npm run build:umd",
     "build": "BUILD_ENV=cjs rollup -c",
     "build:umd": "BUILD_ENV=umd rollup -c",
@@ -49,5 +50,8 @@
         "before"
       ]
     }
+  },
+  "kanpai": {
+    "test": "test2"
   }
 }
