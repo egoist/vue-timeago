@@ -86,7 +86,7 @@ export default function install(Vue, {
         return ret
       }
     },
-    ready() {
+    mounted() {
       if (this.autoUpdate) {
         this.update()
       }
