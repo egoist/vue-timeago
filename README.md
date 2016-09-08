@@ -11,7 +11,7 @@ $ npm install --save vue-timeago
 $ npm install --save vue-timeago@2
 ```
 
-It's also available on NPMCDN: https://npmcdn.com/vue-timeago/index.umd.js
+It's also available on NPMCDN: https://unpkg.com/vue-timeago/index.umd.js
 
 ## Usage
 
