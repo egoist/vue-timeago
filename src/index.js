@@ -35,10 +35,7 @@ export default function install(Vue, {
   const VueTimeago = {
     props: {
       since: {
-        required: true,
-        coerce(val) {
-          return new Date(val).getTime()
-        }
+        required: true
       },
       locale: String,
       maxTime: Number,
@@ -58,12 +55,15 @@ export default function install(Vue, {
         }
         return current
       },
+      sinceTime() {
+        return new Date(this.since).getTime()
+      },
       timeago() {
-        const seconds = (this.now / 1000) - (this.since / 1000)
+        const seconds = (this.now / 1000) - (this.sinceTime / 1000)
 
         if (this.maxTime && seconds > this.maxTime) {
           clearInterval(this.interval)
-          return this.format ? this.format(this.since) : formatTime(this.since)
+          return this.format ? this.format(this.sinceTime) : formatTime(this.sinceTime)
         }
 
         const ret
