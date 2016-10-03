@@ -1,0 +1,10 @@
+[
+  "adesso",
+  ["%s secondo fa", "%s secondi fa"],
+  ["%s minuto fa", "%s minuti fa"],
+  ["%s ora fa", "%s ore fa"],
+  ["%s giorno fa", "%s giorni fa"],
+  ["%s settimana fa", "%s settimane fa"],
+  ["%s mese fa", "%s mesi fa"],
+  ["%s anno fa", "%s anni fa"]
+]
