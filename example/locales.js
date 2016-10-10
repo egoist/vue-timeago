@@ -6,6 +6,9 @@ export default {
   'bg-BG': require('../locales/bg-BG.json'),
   'de-DE': require('../locales/de-DE.json'),
   'es-ES': require('../locales/es-ES.json'),
-  'pr-BR': require('../locales/pt-BR.json'),
-  'fr-FR': require('../locales/fr-FR.json')
+  'pt-BR': require('../locales/pt-BR.json'),
+  'fr-FR': require('../locales/fr-FR.json'),
+  'it-IT': require('../locales/it-IT.json'),
+  'ru-RU': require('../locales/ru-RU.json'),
+  'fa-IR': require('../locales/fa-IR.json')
 }
