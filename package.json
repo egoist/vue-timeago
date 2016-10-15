@@ -1,6 +1,6 @@
 {
   "name": "vue-timeago",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "A timeago filter for Vue.",
   "license": "MIT",
   "repository": "egoist/vue-timeago",
