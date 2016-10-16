@@ -37,6 +37,10 @@ export default function install(Vue, {
       since: {
         required: true
       },
+      tag: {
+        type: String,
+        default: 'span'
+      },
       locale: String,
       maxTime: Number,
       autoUpdate: Number,
@@ -92,7 +96,7 @@ export default function install(Vue, {
       }
     },
     render(h) {
-      return h('span', this.timeago)
+      return h(this.tag, this.timeago)
     },
     methods: {
       update() {
