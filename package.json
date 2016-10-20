@@ -18,7 +18,7 @@
     "build:all": "npm run build && npm run build:umd",
     "build": "BUILD_ENV=cjs rollup -c",
     "build:umd": "BUILD_ENV=umd rollup -c",
-    "example": "vbuild example --dev",
+    "example": "vbuild example --dev --port 5032",
     "example:build": "vbuild example -t VueTimeago",
     "publish:demo": "npm run example:build && gh-pages -d ./dist"
   },

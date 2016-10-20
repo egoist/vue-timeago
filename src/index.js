@@ -92,7 +92,11 @@ export default function install(Vue, {
       }
     },
     render(h) {
-      return h('span', this.timeago)
+      return h('time', {
+        attrs: {
+          datetime: new Date(this.since)
+        }
+      },this.timeago)
     },
     methods: {
       update() {
