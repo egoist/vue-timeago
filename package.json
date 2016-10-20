@@ -14,18 +14,15 @@
   },
   "scripts": {
     "test": "xo src/*.js",
-    "test2": "npm run build:all && npm test",
-    "build:all": "npm run build && npm run build:umd",
-    "build": "BUILD_ENV=cjs rollup -c",
-    "build:umd": "BUILD_ENV=umd rollup -c",
+    "test2": "npm run build && npm test",
+    "build": "bili --format umd --module-name VueTimeago",
     "example": "vbuild example --dev --port 5032",
-    "example:build": "vbuild example -t VueTimeago",
-    "publish:demo": "npm run example:build && gh-pages -d ./dist"
+    "example:build": "vbuild example -t VueTimeago --dist dist-demo",
+    "publish:demo": "npm run example:build && gh-pages -d ./dist-demo"
   },
-  "main": "index.js",
+  "main": "dist/vue-timeago.js",
   "files": [
-    "index.js",
-    "index.umd.js",
+    "dist",
     "locales"
   ],
   "keywords": [
@@ -34,11 +31,9 @@
     "filter"
   ],
   "devDependencies": {
-    "ava": "latest",
-    "babel-preset-es2015-rollup": "^1.1.1",
-    "rollup": "^0.31.1",
-    "rollup-plugin-babel": "^2.5.1",
-    "vue": "^2.0.0-rc.4",
+    "bili": "^0.6.3",
+    "vbuild": "^2.3.5",
+    "vue": "^2.0.0",
     "xo": "latest"
   },
   "xo": {

@@ -96,7 +96,7 @@ export default function install(Vue, {
         attrs: {
           datetime: new Date(this.since)
         }
-      },this.timeago)
+      }, this.timeago)
     },
     methods: {
       update() {
