@@ -7,11 +7,9 @@
 ```bash
 # for Vue 2
 $ npm install --save vue-timeago
-# for Vue 1
-$ npm install --save vue-timeago@2
 ```
 
-It's also available on NPMCDN: https://unpkg.com/vue-timeago/index.umd.js
+It's also available on NPMCDN: https://unpkg.com/vue-timeago/
 
 ## Usage
 
@@ -22,6 +20,7 @@ Vue.use(VueTimeago, {
   name: 'timeago', // component name, `timeago` by default
   locale: 'en-US',
   locales: {
+    // make sure you have a json-loader in your webpack config
     'en-US': require('vue-timeago/locales/en-US.json')
   }
 })
