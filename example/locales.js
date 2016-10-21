@@ -11,5 +11,6 @@ export default {
   'it-IT': require('../locales/it-IT.json'),
   'ru-RU': require('../locales/ru-RU.json'),
   'fa-IR': require('../locales/fa-IR.json'),
-  'ja-JP': require('../locales/ja-JP.json')
+  'ja-JP': require('../locales/ja-JP.json'),
+  'tr-TR': require('../locales/tr-TR.json')
 }
