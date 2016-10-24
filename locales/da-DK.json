@@ -1,0 +1,10 @@
+[
+  "lige nu",
+  ["%s sekund siden", "%s sekunder siden"],
+  ["%s minut siden", "%s minutter siden"],
+  ["%s time siden", "%s timer siden"],
+  ["%s dag siden", "%s dage siden"],
+  ["%s uge siden", "%s uger siden"],
+  ["%s måned siden", "%s måneder siden"],
+  ["%s år siden", "%s år siden"]
+]
