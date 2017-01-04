@@ -52,6 +52,51 @@ A very basic demo: https://egoistian.com/vue-timeago
 
 For all supported languages, see [/locales](https://github.com/egoist/vue-timeago/blob/master/locales), it's easy to add a new language support, feel free to submit a Pull Request to help us support more languages!
 
+## API
+
+### props
+
+#### since
+
+Type: `string` (dateString)<br>
+Required: `true`
+
+String value representing a date. The string should be in a format recognized by the Date.parse() method. see more at [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+#### max-time
+
+Type: `number`<br>
+Default: `86400 * 365` (a year)
+
+The max time in **seconds**, time before this will not be converted.
+
+#### format
+
+Type: `function`
+Default: see below
+
+The function we use to format the time before `max-time`, default function:
+
+```js
+// `time` is returned by `new Date(since).getTime()`
+function formatTime(time) {
+  const d = new Date(time)
+  return d.toLocaleString()
+}
+```
+
+#### auto-update
+
+Type: `number`
+
+The period to update the component, in **seconds**.
+
+#### locale
+
+Type: `string`
+
+Specific a locale for relavant component only.
+
 ## Development
 
 ```bash
