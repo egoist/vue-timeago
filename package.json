@@ -13,12 +13,12 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo src/*.js",
-    "test2": "npm run build && npm test",
+    "test": "xo src/*.js && npm run build",
     "build": "bili --format umd --module-name VueTimeago",
     "example": "vbuild example --dev --port 5032",
     "example:build": "vbuild example -t VueTimeago --dist dist-demo --public-path /vue-timeago/",
-    "publish:demo": "npm run example:build && gh-pages -d ./dist-demo"
+    "publish:demo": "npm run example:build && gh-pages -d ./dist-demo",
+    "prepublish": "npm test"
   },
   "main": "dist/vue-timeago.js",
   "files": [
@@ -48,8 +48,5 @@
         "before"
       ]
     }
-  },
-  "kanpai": {
-    "test": "test2"
   }
 }
