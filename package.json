@@ -15,8 +15,8 @@
   "scripts": {
     "test": "xo src/*.js && npm run build",
     "build": "bili --format umd --module-name VueTimeago",
-    "example": "vbuild example --dev --port 5032",
-    "example:build": "vbuild example -t VueTimeago --dist dist-demo --public-path /vue-timeago/",
+    "example": "vbuild -dc",
+    "example:build": "vbuild -c",
     "publish:demo": "npm run example:build && gh-pages -d ./dist-demo",
     "prepublish": "npm test"
   },
@@ -33,9 +33,7 @@
   "devDependencies": {
     "bili": "^0.6.3",
     "gh-pages": "^0.11.0",
-    "vue": "^2.1.8",
-    "vue-loader": "^10.0.2",
-    "vue-template-compiler": "^2.1.8",
+    "postcss-nested": "^1.0.0",
     "xo": "latest"
   },
   "xo": {
