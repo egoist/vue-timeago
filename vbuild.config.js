@@ -1,6 +1,9 @@
 module.exports = (options, req) => ({
   entry: 'example',
   dist: 'dist-demo',
+  html: {
+    title: 'Vue Timeago'
+  },
   postcss: [
     req('autoprefixer')({
       browsers: ['last 4 versions', 'ie > 8']
