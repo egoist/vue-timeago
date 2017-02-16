@@ -5,9 +5,6 @@ module.exports = (options, req) => ({
     title: 'Vue Timeago'
   },
   postcss: [
-    req('autoprefixer')({
-      browsers: ['last 4 versions', 'ie > 8']
-    }),
     require('postcss-nested')
   ],
   webpack: {
