@@ -101,6 +101,8 @@ export default function install(Vue, {
     watch: {
       autoUpdate(newAutoUpdate) {
         this.stopUpdate()
+        // only update when it's not falsy value
+        // which means you cans set it to 0 to disable auto-update
         if(newAutoUpdate) {
           this.update()
         }

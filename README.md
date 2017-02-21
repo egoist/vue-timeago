@@ -91,6 +91,8 @@ Type: `number`
 
 The period to update the component, in **seconds**.
 
+You can set it to `0` to disable auto-update.
+
 #### locale
 
 Type: `string`
