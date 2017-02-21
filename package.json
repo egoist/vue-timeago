@@ -34,6 +34,7 @@
     "bili": "^0.6.3",
     "gh-pages": "^0.11.0",
     "postcss-nested": "^1.0.0",
+    "vbuild": "^6.16.1",
     "xo": "latest"
   },
   "xo": {
