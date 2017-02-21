@@ -98,17 +98,28 @@ export default function install(Vue, {
         }
       }, this.timeago)
     },
+    watch: {
+      autoUpdate(newAutoUpdate) {
+        this.stopUpdate()
+        if(newAutoUpdate) {
+          this.update()
+        }
+      }
+    },
     methods: {
       update() {
         const period = this.autoUpdate * 1000
         this.interval = setInterval(() => {
           this.now = new Date().getTime()
         }, period)
+      },
+      stopUpdate() {
+        clearInterval(this.interval)
+        this.interval = null
       }
     },
     beforeDestroy() {
-      clearInterval(this.interval)
-      this.interval = null
+      this.stopUpdate()
     }
   }
 
