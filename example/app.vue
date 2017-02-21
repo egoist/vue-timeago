@@ -40,6 +40,7 @@
           {{ lang }}
         </option>
       </select>
+      <input type="button" :value="autoUpdate ? 'Stop update' : 'Resume update'" @click="toggleUpdate">
     </header>
     <div class="people">
       <div class="person" v-for="person in people">
@@ -47,7 +48,7 @@
         <div class="meta">
           was born at
           <timeago
-            :auto-update="1"
+            :auto-update="autoUpdate"
             :max-time="86400 * 365"
             :locale="currentLang"
             class="timeago"
@@ -89,6 +90,7 @@
   export default {
     data() {
       return {
+        autoUpdate: 1,
         people,
         currentLang: qs().lang || 'en-US',
         langs: Object.keys(locales)
@@ -100,6 +102,9 @@
       },
       format(val) {
         return ``
+      },
+      toggleUpdate() {
+        this.autoUpdate = this.autoUpdate ? 0 : 1
       }
     }
   }
