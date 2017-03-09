@@ -34,8 +34,8 @@
     "bili": "^0.6.3",
     "gh-pages": "^0.11.0",
     "postcss-nested": "^1.0.0",
-    "vbuild": "^6.16.1",
-    "xo": "latest"
+    "vbuild": "^6.23.2",
+    "xo": "^0.17.1"
   },
   "xo": {
     "semicolon": false,
