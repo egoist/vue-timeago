@@ -1,0 +1,10 @@
+[
+  "just nu",
+  ["%s sekund sedan", "%s sekunder sedan"],
+  ["%s minut sedan", "%s minuter sedan"],
+  ["%s timme sedan", "%s timmar sedan"],
+  ["%s dag sedan", "%s dagar sedan"],
+  ["%s vecka sedan", "%s veckor sedan"],
+  ["%s månad sedan", "%s månader sedan"],
+  ["%s år sedan", "%s år sedan"]
+]
