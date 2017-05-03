@@ -1,6 +1,7 @@
 {
   "name": "vue-timeago",
   "version": "3.3.1",
+  "productName": "Vue Timeago",
   "description": "A timeago filter for Vue.",
   "license": "MIT",
   "repository": "egoist/vue-timeago",
@@ -15,8 +16,8 @@
   "scripts": {
     "test": "xo src/*.js && npm run build",
     "build": "bili --format umd --module-name VueTimeago",
-    "example": "vbuild -dc",
-    "example:build": "vbuild -c",
+    "example": "poi",
+    "example:build": "poi build",
     "publish:demo": "npm run example:build && gh-pages -d ./dist-demo",
     "prepublish": "npm test"
   },
@@ -33,8 +34,8 @@
   "devDependencies": {
     "bili": "^0.6.3",
     "gh-pages": "^0.11.0",
+    "poi": "^8.0.0-rc.4",
     "postcss-nested": "^1.0.0",
-    "vbuild": "^6.23.2",
     "xo": "^0.17.1"
   },
   "xo": {
