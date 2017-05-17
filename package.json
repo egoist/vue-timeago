@@ -1,6 +1,6 @@
 {
   "name": "vue-timeago",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "productName": "Vue Timeago",
   "description": "A timeago filter for Vue.",
   "license": "MIT",
