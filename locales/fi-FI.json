@@ -1,0 +1,10 @@
+[
+  "juuri nyt",
+  ["%s sekunti sitten", "%s sekuntia sitten"],
+  ["%s minuutti sitten", "%s minuuttia sitten"],
+  ["%s tunti sitten", "%s tuntia sitten"],
+  ["%s päivä sitten", "%s päivää sitten"],
+  ["%s viikko sitten", "%s viikkoa sitten"],
+  ["%s kuukausi sitten", "%s kuukautta sitten"],
+  ["%s vuosi sitten", "%s vuotta sitten"]
+]
