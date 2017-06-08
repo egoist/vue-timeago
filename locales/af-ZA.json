@@ -1,0 +1,10 @@
+[
+  "nou net",
+  ["%s sekonde gelede", "%s sekondes gelede"],
+  ["%s minuut gelede", "%s minute gelede"],
+  ["%s uur gelede", "%s ure gelede"],
+  ["%s dag gelede", "%s dae gelede"],
+  ["%s week gelede", "%s weke gelede"],
+  ["%s maand gelede", "%s maande gelede"],
+  ["%s jaar gelede", "%s jaar gelede"]
+]
