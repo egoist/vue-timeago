@@ -1,0 +1,10 @@
+[
+  "nu net",
+  "%s seconde geleden",
+  ["%s minuut geleden", "%s minuten geleden"],
+  "%s uur geleden",
+  ["%s dag geleden", "%s dagen geleden"],
+  ["%s week geleden", "%s weken geleden"],
+  ["%s maand geleden", "%s maanden geleden"],
+  "%s jaar geleden"
+]
