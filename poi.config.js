@@ -1,8 +1,6 @@
-module.exports = (options, req) => ({
+module.exports = {
   entry: 'example',
   dist: 'dist-demo',
   homepage: '/vue-timeago/',
-  postcss: [
-    require('postcss-nested')
-  ]
-})
+  postcss: [require('postcss-nested')]
+}

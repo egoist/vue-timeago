@@ -23,11 +23,10 @@ function formatTime(time) {
   return d.toLocaleString()
 }
 
-export default function install(Vue, {
-  name = 'timeago',
-  locale = 'en-US',
-  locales = null
-} = {}) {
+export default function install(
+  Vue,
+  { name = 'timeago', locale = 'en-US', locales = null } = {}
+) {
   if (!locales || Object.keys(locales).length === 0) {
     throw new TypeError('Expected locales to have at lease one locale.')
   }
@@ -59,29 +58,30 @@ export default function install(Vue, {
         return new Date(this.since).getTime()
       },
       timeago() {
-        const seconds = (this.now / 1000) - (this.sinceTime / 1000)
+        const seconds = this.now / 1000 - this.sinceTime / 1000
 
         if (this.maxTime && seconds > this.maxTime) {
           clearInterval(this.interval)
-          return this.format ? this.format(this.sinceTime) : formatTime(this.sinceTime)
+          return this.format
+            ? this.format(this.sinceTime)
+            : formatTime(this.sinceTime)
         }
 
-        const ret
-          = seconds <= 5
+        const ret = seconds <= 5
           ? pluralOrSingular('just now', this.currentLocale[0])
           : seconds < MINUTE
-          ? pluralOrSingular(seconds, this.currentLocale[1])
-          : seconds < HOUR
-          ? pluralOrSingular(seconds / MINUTE, this.currentLocale[2])
-          : seconds < DAY
-          ? pluralOrSingular(seconds / HOUR, this.currentLocale[3])
-          : seconds < WEEK
-          ? pluralOrSingular(seconds / DAY, this.currentLocale[4])
-          : seconds < MONTH
-          ? pluralOrSingular(seconds / WEEK, this.currentLocale[5])
-          : seconds < YEAR
-          ? pluralOrSingular(seconds / MONTH, this.currentLocale[6])
-          : pluralOrSingular(seconds / YEAR, this.currentLocale[7])
+            ? pluralOrSingular(seconds, this.currentLocale[1])
+            : seconds < HOUR
+              ? pluralOrSingular(seconds / MINUTE, this.currentLocale[2])
+              : seconds < DAY
+                ? pluralOrSingular(seconds / HOUR, this.currentLocale[3])
+                : seconds < WEEK
+                  ? pluralOrSingular(seconds / DAY, this.currentLocale[4])
+                  : seconds < MONTH
+                    ? pluralOrSingular(seconds / WEEK, this.currentLocale[5])
+                    : seconds < YEAR
+                      ? pluralOrSingular(seconds / MONTH, this.currentLocale[6])
+                      : pluralOrSingular(seconds / YEAR, this.currentLocale[7])
 
         return ret
       }
@@ -92,11 +92,15 @@ export default function install(Vue, {
       }
     },
     render(h) {
-      return h('time', {
-        attrs: {
-          datetime: new Date(this.since)
-        }
-      }, this.timeago)
+      return h(
+        'time',
+        {
+          attrs: {
+            datetime: new Date(this.since)
+          }
+        },
+        this.timeago
+      )
     },
     watch: {
       autoUpdate(newAutoUpdate) {
