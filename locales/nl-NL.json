@@ -1,6 +1,6 @@
 [
   "nu net",
-  "%s seconde geleden",
+  ["%s seconde geleden", "%s seconden geleden"],
   ["%s minuut geleden", "%s minuten geleden"],
   "%s uur geleden",
   ["%s dag geleden", "%s dagen geleden"],
