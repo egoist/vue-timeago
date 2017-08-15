@@ -28,7 +28,7 @@ export default function install(
   { name = 'timeago', locale = 'en-US', locales = null } = {}
 ) {
   if (!locales || Object.keys(locales).length === 0) {
-    throw new TypeError('Expected locales to have at lease one locale.')
+    throw new TypeError('Expected locales to have at least one locale.')
   }
 
   const VueTimeago = {
