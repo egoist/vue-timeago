@@ -67,21 +67,28 @@ export default function install(
             : formatTime(this.sinceTime)
         }
 
-        const ret = seconds <= 5
-          ? pluralOrSingular('just now', this.currentLocale[0])
-          : seconds < MINUTE
-            ? pluralOrSingular(seconds, this.currentLocale[1])
-            : seconds < HOUR
-              ? pluralOrSingular(seconds / MINUTE, this.currentLocale[2])
-              : seconds < DAY
-                ? pluralOrSingular(seconds / HOUR, this.currentLocale[3])
-                : seconds < WEEK
-                  ? pluralOrSingular(seconds / DAY, this.currentLocale[4])
-                  : seconds < MONTH
-                    ? pluralOrSingular(seconds / WEEK, this.currentLocale[5])
-                    : seconds < YEAR
-                      ? pluralOrSingular(seconds / MONTH, this.currentLocale[6])
-                      : pluralOrSingular(seconds / YEAR, this.currentLocale[7])
+        const ret =
+          seconds <= 5
+            ? pluralOrSingular('just now', this.currentLocale[0])
+            : seconds < MINUTE
+              ? pluralOrSingular(seconds, this.currentLocale[1])
+              : seconds < HOUR
+                ? pluralOrSingular(seconds / MINUTE, this.currentLocale[2])
+                : seconds < DAY
+                  ? pluralOrSingular(seconds / HOUR, this.currentLocale[3])
+                  : seconds < WEEK
+                    ? pluralOrSingular(seconds / DAY, this.currentLocale[4])
+                    : seconds < MONTH
+                      ? pluralOrSingular(seconds / WEEK, this.currentLocale[5])
+                      : seconds < YEAR
+                        ? pluralOrSingular(
+                            seconds / MONTH,
+                            this.currentLocale[6]
+                          )
+                        : pluralOrSingular(
+                            seconds / YEAR,
+                            this.currentLocale[7]
+                          )
 
         return ret
       }
