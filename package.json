@@ -18,7 +18,7 @@
     "build": "bili --format umd --module-name VueTimeago",
     "example": "poi",
     "example:build": "poi build",
-    "publish:demo": "npm run example:build && gh-pages -d ./dist-demo",
+    "deploy": "npm run example:build && gh-pages -d ./example/dist",
     "prepublish": "npm test"
   },
   "main": "dist/vue-timeago.js",
