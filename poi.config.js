@@ -1,6 +1,6 @@
 module.exports = {
   entry: 'example',
-  dist: 'dist-demo',
+  dist: 'example/dist',
   homepage: '/vue-timeago/',
   postcss: [require('postcss-nested')]
 }
