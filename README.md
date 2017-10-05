@@ -111,3 +111,7 @@ $ npm run build
 ## License
 
 MIT © [EGOIST](https://github.com/egoist)
+
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/Ux4hdW1RzN8XpYzVUoWJFxg9/egoist/vue-timeago'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/Ux4hdW1RzN8XpYzVUoWJFxg9/egoist/vue-timeago.svg' />
+</a>
