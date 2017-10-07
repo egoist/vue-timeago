@@ -57,6 +57,17 @@ export default function install(
       sinceTime() {
         return new Date(this.since).getTime()
       },
+      timeForTitle() {
+        const seconds = this.now / 1000 - this.sinceTime / 1000
+
+        if (this.maxTime && seconds > this.maxTime) {
+          return '';
+        }
+
+        return this.format
+          ? this.format(this.sinceTime)
+          : formatTime(this.sinceTime)
+      },
       timeago() {
         const seconds = this.now / 1000 - this.sinceTime / 1000
 
@@ -103,7 +114,8 @@ export default function install(
         'time',
         {
           attrs: {
-            datetime: new Date(this.since)
+            datetime: new Date(this.since),
+            title: this.timeForTitle,
           }
         },
         this.timeago
