@@ -61,7 +61,7 @@ export default function install(
         const seconds = this.now / 1000 - this.sinceTime / 1000
 
         if (this.maxTime && seconds > this.maxTime) {
-          return '';
+          return ''
         }
 
         return this.format
@@ -115,7 +115,7 @@ export default function install(
         {
           attrs: {
             datetime: new Date(this.since),
-            title: this.timeForTitle,
+            title: this.timeForTitle
           }
         },
         this.timeago
