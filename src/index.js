@@ -61,7 +61,7 @@ export default function install(
         const seconds = this.now / 1000 - this.sinceTime / 1000
 
         if (this.maxTime && seconds > this.maxTime) {
-          return ''
+          return null
         }
 
         return this.format
