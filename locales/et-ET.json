@@ -1,0 +1,10 @@
+[
+  "praegu",
+  ["%s sekund tagasi", "%s sekundit tagasi"],
+  ["%s minut tagasi", "%s minutit tagasi"],
+  ["%s tund tagasi", "%s tundi tagasi"],
+  ["%s päev tagasi", "%s päeva tagasi"],
+  ["%s nädal tagasi", "%s nädalat tagasi"],
+  ["%s kuu tagasi", "%s kuud tagasi"],
+  ["%s aasta tagasi", "%s aastat tagasi"]
+]
