@@ -1,3 +1,11 @@
+## [Version 3.4.1](https://github.com/egoist/vue-timeago/releases/tag/v3.4.1) (2017-12-2)
+
+### Bug fixes
+
+- Add hebrew locale: [`ff8ccb4`](https://github.com/egoist/vue-timeago/commit/ff8ccb4) ([#60](https://github.com/egoist/vue-timeago/issues/60))
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v3.4.0...v3.4.1)
+
 ## [Version 3.4.0](https://github.com/egoist/vue-timeago/releases/tag/v3.4.0) (2017-10-27)
 
 ### New features
