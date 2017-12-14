@@ -8,13 +8,8 @@
 $ npm install --save vue-timeago
 ```
 
-### CDN
+CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/vue-timeago/dist/) (available as `window.VueTimeago`)
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/vue-timeago@3/dist/vue-timeago.min.js"></script>
-<!-- or -->
-<script src="https://unpkg.com/vue-timeago@3/dist/vue-timeago.js"></script>
-```
 
 ## Usage
 
