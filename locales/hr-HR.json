@@ -1,0 +1,10 @@
+[
+  "upravo sad",
+  ["prije %s sekunde", "prije %s sekundi"],
+  ["prije %s minute", "prije %s minuta"],
+  ["prije %s sata", "prije %s sati"],
+  "prije %s dana",
+  ["prije %s tjedna", "prije %s tjedana"],
+  ["prije %s mjeseca", "prije %s mjeseci"],
+  ["prije %s godine", "prije %s godina"]
+]
