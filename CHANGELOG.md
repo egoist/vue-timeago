@@ -1,3 +1,14 @@
+## [Version 3.4.2](https://github.com/egoist/vue-timeago/releases/tag/v3.4.2) (2017-12-14)
+
+### Bug fixes
+
+- Corrected display direction for the hebrew (he-IL) locale.: [`293f793`](https://github.com/egoist/vue-timeago/commit/293f793) ([#61](https://github.com/egoist/vue-timeago/issues/61))
+- Fixed 'sort of' grammar error: [`fc740ad`](https://github.com/egoist/vue-timeago/commit/fc740ad) ([#48](https://github.com/egoist/vue-timeago/issues/48))
+- Korean Translation.: [`615caa5`](https://github.com/egoist/vue-timeago/commit/615caa5) ([#63](https://github.com/egoist/vue-timeago/issues/63))
+- Croatian translation: [`44c814a`](https://github.com/egoist/vue-timeago/commit/44c814a) ([#62](https://github.com/egoist/vue-timeago/issues/62))
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v3.4.1...v3.4.2)
+
 ## [Version 3.4.1](https://github.com/egoist/vue-timeago/releases/tag/v3.4.1) (2017-12-2)
 
 ### Bug fixes
