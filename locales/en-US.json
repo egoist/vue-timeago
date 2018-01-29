@@ -33,32 +33,32 @@
   "future": [
     "just now",
     [
-      "in %s second",
-      "in %s seconds"
+      "%s second left",
+      "%s seconds left"
     ],
     [
-      "in %s minute",
-      "in %s minutes"
+      "%s minute left",
+      "%s minutes left"
     ],
     [
-      "in %s hour",
-      "in %s hours"
+      "%s hour left",
+      "%s hours left"
     ],
     [
-      "in %s day",
-      "in %s days"
+      "%s day left",
+      "%s days left"
     ],
     [
-      "in %s week",
-      "in %s weeks"
+      "%s week left",
+      "%s weeks left"
     ],
     [
-      "in %s month",
-      "in %s months"
+      "%s month left",
+      "%s months left"
     ],
     [
-      "in %s year",
-      "in %s years"
+      "%s year left",
+      "%s years left"
     ]
   ]
 }
