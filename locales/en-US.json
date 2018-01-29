@@ -1,5 +1,5 @@
 {
-  "since": [
+  "past": [
     "just now",
     [
       "%s second ago",
@@ -30,7 +30,7 @@
       "%s years ago"
     ]
   ],
-  "until": [
+  "future": [
     "just now",
     [
       "in %s second",

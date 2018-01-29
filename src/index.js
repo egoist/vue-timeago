@@ -52,13 +52,20 @@ export default function install(
         if (!current) {
           return locales[locale]
         }
-        return current
+        if(this.isFuture) {
+          return current.future;
+        } else {
+          return current.past;
+        }
       },
       sinceTime() {
         return new Date(this.since).getTime()
       },
+      isFuture() {
+        return ((this.now - this.sinceTime) > 0)
+      },
       timeForTitle() {
-        const seconds = this.now / 1000 - this.sinceTime / 1000
+        const seconds = Math.abs(this.now / 1000 - this.sinceTime / 1000)
 
         if (this.maxTime && seconds > this.maxTime) {
           return null
@@ -69,7 +76,7 @@ export default function install(
           : formatTime(this.sinceTime)
       },
       timeago() {
-        const seconds = this.now / 1000 - this.sinceTime / 1000
+        const seconds = Math.abs(this.now / 1000 - this.sinceTime / 1000)
 
         if (this.maxTime && seconds > this.maxTime) {
           clearInterval(this.interval)
