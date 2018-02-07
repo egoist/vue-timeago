@@ -1,5 +1,5 @@
 [
-  "nu net",
+  "zojuist",
   ["%s seconde geleden", "%s seconden geleden"],
   ["%s minuut geleden", "%s minuten geleden"],
   "%s uur geleden",
