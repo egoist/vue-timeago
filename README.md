@@ -46,7 +46,7 @@ Then in your lovely component:
 <timeago :since="time" locale="zh-CN"></timeago>
 ```
 
-A very basic demo: https://egoistian.com/vue-timeago
+A very basic demo: https://egoist.moe/vue-timeago/
 
 ## i18n support
 
