@@ -1,3 +1,12 @@
+## [Version 3.4.3](https://github.com/egoist/vue-timeago/releases/tag/v3.4.3) (2018-2-17)
+
+### Bug fixes
+
+- Update nl-NL.json: [`21434aa`](https://github.com/egoist/vue-timeago/commit/21434aa) ([#67](https://github.com/egoist/vue-timeago/issues/67))
+- Create ar-SA.json: [`f8d4eac`](https://github.com/egoist/vue-timeago/commit/f8d4eac) ([#69](https://github.com/egoist/vue-timeago/issues/69))
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v3.4.2...v3.4.3)
+
 ## [Version 3.4.2](https://github.com/egoist/vue-timeago/releases/tag/v3.4.2) (2017-12-14)
 
 ### Bug fixes
