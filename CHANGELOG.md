@@ -1,3 +1,11 @@
+## [Version 3.4.4](https://github.com/egoist/vue-timeago/releases/tag/v3.4.4) (2018-2-19)
+
+### Bug fixes
+
+- Update ar-SA.json: [`bcb2b0e`](https://github.com/egoist/vue-timeago/commit/bcb2b0e) ([#71](https://github.com/egoist/vue-timeago/issues/71))
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v3.4.3...v3.4.4)
+
 ## [Version 3.4.3](https://github.com/egoist/vue-timeago/releases/tag/v3.4.3) (2018-2-17)
 
 ### Bug fixes
