@@ -11,9 +11,22 @@ function pluralOrSingular(data, locale) {
   }
   const count = Math.round(data)
   if (Array.isArray(locale)) {
-    return count > 1
-      ? locale[1].replace(/%s/, count)
-      : locale[0].replace(/%s/, count)
+    if (locale.length === 2) {
+      return count > 1
+        ? locale[1].replace(/%s/, count)
+        : locale[0].replace(/%s/, count)
+    }
+    else if (locale.length === 3) {   // fix for pl-PL
+      if (count === 1) {
+        return locale[0].replace(/%s/, count)
+      }
+      else if (count <= 4) {
+        return locale[1].replace(/%s/, count)
+      }
+      else {
+        return locale[2].replace(/%s/, count)
+      }
+    }
   }
   return locale.replace(/%s/, count)
 }
