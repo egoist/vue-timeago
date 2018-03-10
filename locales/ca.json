@@ -1,0 +1,10 @@
+[
+  "ara",
+  ["fa %s segon", "fa %s segons"],
+  ["fa %s minut", "fa %s minuts"],
+  ["fa %s hora", "fa %s hores"],
+  ["fa %s dia", "fa %s dies"],
+  ["fa %s setmana", "fa %s setmanes"],
+  ["fa %s mes", "fa %s mesos"],
+  ["fa %s any", "fa %s anys"]
+]
