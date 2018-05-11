@@ -32,6 +32,7 @@
   ],
   "devDependencies": {
     "bili": "^3.1.1",
+    "date-fns": "^1.29.0",
     "eslint-config-rem": "^4.0.0",
     "gh-pages": "^1.0.0",
     "poi": "^10.1.6",
@@ -44,7 +45,8 @@
       "example/**"
     ]
   },
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "date-fns": "^1.29.0"
   }
 }
