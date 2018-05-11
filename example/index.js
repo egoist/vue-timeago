@@ -1,16 +1,23 @@
 import Vue from 'vue'
-import VueTimeago from '../src'
-import app from './app'
-import qs from './qs'
-import locales from './locales'
+import Timeago from '../src'
+import App from './App.vue'
 
-Vue.config.debug = true
-Vue.use(VueTimeago, {
-  locale: 'en-US',
+const r = require.context('date-fns/locale', true, /^\.\/([\w\_]+)\/index\.js/)
+const locales = {}
+r.keys().forEach(v => {
+  const [, name] = /^\.\/([\w\_]+)\/index\.js/.exec(v)
+  locales[name] = r(v)
+})
+
+Vue.use(Timeago, {
   locales
 })
 
 new Vue({
   el: '#app',
-  render: h => h(app)
+  render: h => h(App, {
+    props: {
+      localeNames: Object.keys(locales)
+    }
+  })
 })

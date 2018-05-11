@@ -1,152 +1,99 @@
-const MINUTE = 60
-const HOUR = MINUTE * 60
-const DAY = HOUR * 24
-const WEEK = DAY * 7
-const MONTH = DAY * 30
-const YEAR = DAY * 365
+import toNow from 'date-fns/distance_in_words_to_now'
 
-function pluralOrSingular(data, locale) {
-  if (data === 'just now') {
-    return locale
-  }
-  const count = Math.round(data)
-  if (Array.isArray(locale)) {
-    return count > 1
-      ? locale[1].replace(/%s/, count)
-      : locale[0].replace(/%s/, count)
-  }
-  return locale.replace(/%s/, count)
-}
+export const createTimeago = (opts = {}) => {
+  const locales = opts.locales || {}
+  const name = opts.name || 'Timeago'
 
-function formatTime(time) {
-  const d = new Date(time)
-  return d.toLocaleString()
-}
+  return {
+    name,
 
-export default function install(
-  Vue,
-  { name = 'timeago', locale = 'en-US', locales = null } = {}
-) {
-  if (!locales || Object.keys(locales).length === 0) {
-    throw new TypeError('Expected locales to have at least one locale.')
-  }
-
-  const VueTimeago = {
     props: {
       since: {
         required: true
       },
-      locale: String,
-      maxTime: Number,
-      autoUpdate: Number,
-      format: Function
+      title: {
+        type: [String, Boolean]
+      },
+      locale: {
+        type: String
+      },
+      autoUpdate: {
+        type: Number
+      },
+      includeSeconds: {
+        type: Boolean
+      }
     },
+
     data() {
       return {
-        now: new Date().getTime()
+        timeago: this.convert(this.since)
       }
     },
-    computed: {
-      currentLocale() {
-        const current = locales[this.locale || locale]
-        if (!current) {
-          return locales[locale]
-        }
-        return current
-      },
-      sinceTime() {
-        return new Date(this.since).getTime()
-      },
-      timeForTitle() {
-        const seconds = this.now / 1000 - this.sinceTime / 1000
 
-        if (this.maxTime && seconds > this.maxTime) {
-          return null
-        }
-
-        return this.format
-          ? this.format(this.sinceTime)
-          : formatTime(this.sinceTime)
-      },
-      timeago() {
-        const seconds = this.now / 1000 - this.sinceTime / 1000
-
-        if (this.maxTime && seconds > this.maxTime) {
-          clearInterval(this.interval)
-          return this.format
-            ? this.format(this.sinceTime)
-            : formatTime(this.sinceTime)
-        }
-
-        const ret =
-          seconds <= 5
-            ? pluralOrSingular('just now', this.currentLocale[0])
-            : seconds < MINUTE
-              ? pluralOrSingular(seconds, this.currentLocale[1])
-              : seconds < HOUR
-                ? pluralOrSingular(seconds / MINUTE, this.currentLocale[2])
-                : seconds < DAY
-                  ? pluralOrSingular(seconds / HOUR, this.currentLocale[3])
-                  : seconds < WEEK
-                    ? pluralOrSingular(seconds / DAY, this.currentLocale[4])
-                    : seconds < MONTH
-                      ? pluralOrSingular(seconds / WEEK, this.currentLocale[5])
-                      : seconds < YEAR
-                        ? pluralOrSingular(
-                            seconds / MONTH,
-                            this.currentLocale[6]
-                          )
-                        : pluralOrSingular(
-                            seconds / YEAR,
-                            this.currentLocale[7]
-                          )
-
-        return ret
-      }
-    },
     mounted() {
-      if (this.autoUpdate) {
-        this.update()
-      }
+      this.startUpdater()
     },
+
+    beforeDestroy() {
+      this.stopUpdater()
+    },
+
     render(h) {
       return h(
         'time',
         {
           attrs: {
             datetime: new Date(this.since),
-            title: this.timeForTitle
+            title:
+              typeof this.title === 'string' ?
+                this.title :
+                this.title === false ?
+                  null :
+                  this.timeago
           }
         },
-        this.timeago
+        [this.timeago]
       )
     },
-    watch: {
-      autoUpdate(newAutoUpdate) {
-        this.stopUpdate()
-        // only update when it's not falsy value
-        // which means you cans set it to 0 to disable auto-update
-        if (newAutoUpdate) {
-          this.update()
+
+    methods: {
+      convert(date) {
+        return toNow(date, {
+          addSuffix: true,
+          locale: locales[this.locale || opts.locale],
+          includeSeconds: this.includeSeconds
+        })
+      },
+
+      startUpdater() {
+        if (this.autoUpdate) {
+          this.updater = setInterval(() => {
+            this.timeago = this.convert(this.since)
+          }, this.autoUpdate * 1000)
+        }
+      },
+
+      stopUpdater() {
+        if (this.updater) {
+          clearInterval(this.updater)
+          this.updater = null
         }
       }
     },
-    methods: {
-      update() {
-        const period = this.autoUpdate * 1000
-        this.interval = setInterval(() => {
-          this.now = new Date().getTime()
-        }, period)
-      },
-      stopUpdate() {
-        clearInterval(this.interval)
-        this.interval = null
+
+    watch: {
+      autoUpdate(newValue) {
+        this.stopUpdater()
+        if (newValue) {
+          this.startUpdater()
+        }
       }
-    },
-    beforeDestroy() {
-      this.stopUpdate()
     }
   }
+}
 
-  Vue.component(name, VueTimeago)
+export default (Vue, opts) => {
+  const Component = createTimeago(opts)
+  Vue.component(Component.name, Component)
 }

@@ -4,8 +4,12 @@
 
 ## Install
 
+`vue-timeago` uses `date-fns/distance_in_words_to_now` under the hood:
+
 ```bash
-$ npm install --save vue-timeago
+yarn add date-fns vue-timeago
+# or
+npm i date-fns vue-timeago
 ```
 
 CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/vue-timeago/dist/) (available as `window.VueTimeago`)
@@ -17,11 +21,11 @@ CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdel
 import VueTimeago from 'vue-timeago'
 
 Vue.use(VueTimeago, {
-  name: 'timeago', // component name, `timeago` by default
-  locale: 'en-US',
+  name: 'Timeago', // Component name, `Timeago` by default
+  locale: undefined, // Default locale
   locales: {
-    // you will need json-loader in webpack 1
-    'en-US': require('vue-timeago/locales/en-US.json')
+    'zh-CN': require('date-fns/locale/zh_cn'),
+    'ja': require('date-fns/locale/ja'),
   }
 })
 ```
@@ -36,21 +40,10 @@ Then in your lovely component:
 <!-- Auto-update time every 60 seconds -->
 <timeago :since="time" :auto-update="60"></timeago>
 
-<!-- max time, time before this will not be converted  -->
-<!-- instead you can use a custom formatTime function to format -->
-<!-- 86400 * 365 = a year -->
-<timeago :since="time" :max-time="86400 * 365" :format="formatTime"></timeago>
-
 <!-- custom locale -->
 <!-- use a different locale instead of the global config -->
 <timeago :since="time" locale="zh-CN"></timeago>
 ```
-
-A very basic demo: https://egoist.moe/vue-timeago/
-
-## i18n support
-
-For all supported languages, see [/locales](https://github.com/egoist/vue-timeago/blob/master/locales), it's easy to add a new language support, feel free to submit a Pull Request to help us support more languages!
 
 ## API
 
@@ -58,36 +51,14 @@ For all supported languages, see [/locales](https://github.com/egoist/vue-timeag
 
 #### since
 
-Type: `string` (dateString)<br>
-Required: `true`
+- __Type__: `Date` `string` `number`
+- __Required__: `true`
 
-String value representing a date. The string should be in a format recognized by the Date.parse() method. see more at [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+The given date.
 
-#### max-time
+#### autoUpdate
 
-Type: `number`<br>
-Default: `86400 * 365` (a year)
-
-The max time in **seconds**, time before this will not be converted.
-
-#### format
-
-Type: `function`
-Default: see below
-
-The function we use to format the time before `max-time`, default function:
-
-```js
-// `time` is returned by `new Date(since).getTime()`
-function formatTime(time) {
-  const d = new Date(time)
-  return d.toLocaleString()
-}
-```
-
-#### auto-update
-
-Type: `number`
+- __Type__: `number`
 
 The period to update the component, in **seconds**.
 
@@ -95,18 +66,25 @@ You can set it to `0` to disable auto-update.
 
 #### locale
 
-Type: `string`
+- __Type__: `string`
 
-Specific a locale for relavant component only.
+Use a custom locale.
+
+#### includeSeconds
+
+- __Type__: `boolean`
+- __Default__: `false`
+
+Distances less than a minute are more detailed
 
 ## Development
 
 ```bash
 # for dev
-$ npm run example
+yarn example
 
-# for publishing
-$ npm run build
+# build in cjs es umd format
+yarn build
 ```
 
 ## License

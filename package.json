@@ -10,18 +10,16 @@
     "email": "0x142857@gmail.com",
     "url": "github.com/egoist"
   },
-  "engines": {
-    "node": ">=4"
-  },
   "scripts": {
     "test": "xo && npm run build",
-    "build": "bili --format umd --module-name VueTimeago",
-    "example": "poi",
-    "example:build": "poi build",
-    "deploy": "npm run example:build && gh-pages -d ./example/dist",
-    "prepublish": "npm test"
+    "build": "bili src/index.js --format umd,cjs,es --exports named --module-name VueTimeago",
+    "prepublishOnly": "npm run build"
   },
-  "main": "dist/vue-timeago.js",
+  "main": "dist/vue-timeago.cjs.js",
+  "module": "dist/vue-timeago.es.js",
+  "unpkg": "dist/vue-timeago.js",
+  "cdn": "dist/vue-timeago.js",
+  "jsdelivr": "dist/vue-timeago.js",
   "files": [
     "dist",
     "locales"
@@ -32,17 +30,20 @@
     "filter"
   ],
   "devDependencies": {
-    "bili": "^0.16.0-rc.2",
-    "eslint-config-rem": "^3.1.0",
+    "bili": "^3.1.1",
+    "eslint-config-rem": "^4.0.0",
     "gh-pages": "^1.0.0",
-    "poi": "^9.4.3",
+    "poi": "^10.1.6",
     "postcss-nested": "^1.0.0",
-    "xo": "^0.18.2"
+    "xo": "^0.21.0"
   },
   "xo": {
-    "extends": "rem/prettier",
+    "extends": "rem",
     "ignores": [
       "example/**"
     ]
+  },
+  "dependencies": {
+    "date-fns": "^1.29.0"
   }
 }
