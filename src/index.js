@@ -93,7 +93,9 @@ export const createTimeago = (opts = {}) => {
   }
 }
 
-export default (Vue, opts) => {
+export const install = (Vue, opts) => {
   const Component = createTimeago(opts)
   Vue.component(Component.name, Component)
 }
+
+export default install
