@@ -58,10 +58,11 @@ The given date.
 #### autoUpdate
 
 - __Type__: `number`
+- __Default__: `false`
 
 The period to update the component, in **seconds**.
 
-You can set it to `0` to disable auto-update.
+You can omit this prop or set it to `0` to disable auto-update.
 
 #### locale
 
