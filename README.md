@@ -81,7 +81,7 @@ Distances less than a minute are more detailed
 
 The older version (700 bytes gzipped) is much smaller than the current version (2.8kB gzipped) that uses [`date-fns`](https://date-fns.org/).
 
-But the current version gives more precise result (and hopefull handles more edge cases), and we don't need to maintain a big list of locale messages because `date-fns` already did it for us.
+But the current version gives more precise result (and hopefully handles more edge cases), and we don't need to maintain a big list of locale messages because `date-fns` already did it for us.
 
 ## Development
 
