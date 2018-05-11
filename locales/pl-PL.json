@@ -1,0 +1,10 @@
+[
+  "przed chwilą",
+  ["%s sekundę temu", "%s sekundy temu", "%s sekund temu"],
+  ["%s minutę temu", "%s minuty temu", "%s minut temu"],
+  ["%s godzinę temu", "%s godziny temu", "%s godzin temu"],
+  ["%s dzień temu", "%s dni temu"],
+  ["%s tydzień temu", "%s tygodnie temu", "%s tygodni temu"],
+  ["%s miesiąc temu", "%s miesiące temu", "%s miesięcy temu"],
+  ["%s rok temu", "%s lata temu", "%s lat temu"]
+]
