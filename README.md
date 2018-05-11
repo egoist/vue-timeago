@@ -76,7 +76,7 @@ Use a custom locale.
 
 Distances less than a minute are more detailed
 
-## What about the good old vue-timeago@3?
+## What about the good old [vue-timeago v3](https://github.com/egoist/vue-timeago/tree/3)?
 
 The older version (700 bytes gzipped) is much smaller than the current version (7kB gzipped) that uses [`date-fns`](https://date-fns.org/).
 
