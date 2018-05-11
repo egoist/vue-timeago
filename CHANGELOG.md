@@ -1,3 +1,12 @@
+## [Version 4.0.1](https://github.com/egoist/vue-timeago/releases/tag/v4.0.1) (2018-5-11)
+
+### Bug fixes
+
+- tweaks: [`cbeb9b9`](https://github.com/egoist/vue-timeago/commit/cbeb9b9)
+- require date-fns as peerDependency: [`f9e86ce`](https://github.com/egoist/vue-timeago/commit/f9e86ce)
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v4.0.0...v4.0.1)
+
 ## [Version 4.0.0](https://github.com/egoist/vue-timeago/releases/tag/v4.0.0) (2018-5-11)
 
 ### Breaking changes
