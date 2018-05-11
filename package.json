@@ -13,7 +13,8 @@
   "scripts": {
     "test": "xo && npm run build",
     "build": "bili src/index.js --format umd,cjs,es --exports named --module-name VueTimeago",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "example": "poi example/index.js"
   },
   "main": "dist/vue-timeago.cjs.js",
   "module": "dist/vue-timeago.es.js",

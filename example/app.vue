@@ -12,7 +12,7 @@
       </select>
     </div>
     <div class="main">
-      <timeago :since="new Date('2011-02-12')" :locale="locale" />
+      <timeago :since="new Date('2022-02-12')" :locale="locale" />
       <hr>
       <timeago :since="new Date()" :locale="locale" :autoUpdate="1" :includeSeconds="true" />
     </div>
