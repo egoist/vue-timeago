@@ -1,3 +1,15 @@
+## [Version 4.0.0](https://github.com/egoist/vue-timeago/releases/tag/v4.0.0) (2018-5-11)
+
+### Breaking changes
+
+- use date-fns: [`f404920`](https://github.com/egoist/vue-timeago/commit/f404920)
+
+### Bug fixes
+
+- tweaks: [`7e21ecb`](https://github.com/egoist/vue-timeago/commit/7e21ecb)
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v3.4.4...v4.0.0)
+
 ## [Version 3.4.4](https://github.com/egoist/vue-timeago/releases/tag/v3.4.4) (2018-2-19)
 
 ### Bug fixes
