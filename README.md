@@ -14,7 +14,6 @@ npm i date-fns vue-timeago
 
 CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/vue-timeago/dist/) (available as `window.VueTimeago`)
 
-
 ## Usage
 
 ```js
@@ -76,6 +75,12 @@ Use a custom locale.
 - __Default__: `false`
 
 Distances less than a minute are more detailed
+
+## What about the good old vue-timeago@3?
+
+The older version (700 bytes gzipped) is much smaller than the current version (7kB gzipped) that uses [`date-fns`](https://date-fns.org/).
+
+But the current version gives more precise result (and hopefull handles more edge cases), and we don't need to maintain a big list of locale messages because `date-fns` already did it for us.
 
 ## Development
 
