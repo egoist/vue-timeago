@@ -88,6 +88,10 @@ export const createTimeago = (opts = {}) => {
         if (newValue) {
           this.startUpdater()
         }
+      },
+
+      since(newValue) {
+        this.timeago = this.convert(newValue)
       }
     }
   }
