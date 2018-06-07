@@ -1,3 +1,11 @@
+## [Version 4.0.2](https://github.com/egoist/vue-timeago/releases/tag/v4.0.2) (2018-6-7)
+
+### Bug fixes
+
+- update `timeago` when `since` changed, fixed [#79](https://github.com/egoist/vue-timeago/issues/79): [`275366c`](https://github.com/egoist/vue-timeago/commit/275366c)
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v4.0.1...v4.0.2)
+
 ## [Version 4.0.1](https://github.com/egoist/vue-timeago/releases/tag/v4.0.1) (2018-5-11)
 
 ### Bug fixes
