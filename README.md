@@ -53,7 +53,7 @@ Then in your lovely component:
 - __Type__: `Date` `string` `number`
 - __Required__: `true`
 
-The given date.
+The given date. If you use number then it is interpreted as amount of miliseconds from epoch eg.: 1529358383000.
 
 #### autoUpdate
 
