@@ -1,3 +1,11 @@
+## [Version 5.0.0](https://github.com/egoist/vue-timeago/releases/tag/v5.0.0) (2018-7-22)
+
+### Breaking changes
+
+- support custom converter: [`03141bd`](https://github.com/egoist/vue-timeago/commit/03141bd)
+
+[...full changes](https://github.com/egoist/vue-timeago/compare/v4.0.2...v5.0.0)
+
 ## [Version 4.0.2](https://github.com/egoist/vue-timeago/releases/tag/v4.0.2) (2018-6-7)
 
 ### Bug fixes
