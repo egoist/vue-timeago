@@ -14,6 +14,8 @@ CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdel
 
 ## Usage
 
+For usages on version 4, please check out [this branch](https://github.com/egoist/vue-timeago/tree/4).
+
 ```js
 import VueTimeago from 'vue-timeago'
 
