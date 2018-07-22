@@ -12,20 +12,28 @@
       </select>
     </div>
     <div class="main">
-      <timeago :since="new Date('2022-02-12')" :locale="locale" />
+      <input type="text" v-model="datetime1">
+      <timeago :datetime="datetime1" :locale="locale" :converter="converter" />
       <hr>
-      <timeago :since="new Date()" :locale="locale" :autoUpdate="1" :includeSeconds="true" />
+      <input type="text" v-model="datetime2">
+      <timeago :datetime="datetime2" :locale="locale" :autoUpdate="autoUpdate ? 1 : 0" :converterOptions="{ includeSeconds: true }" /> <input type="checkbox" v-model="autoUpdate"> Auto Update in every second
     </div>
   </div>
 </template>
 
 <script>
+import format from 'date-fns/format'
+
 export default {
   props: ['localeNames'],
 
   data() {
     return {
-      locale: 'en'
+      locale: 'en',
+      autoUpdate: false,
+      datetime1: '2022-02-12',
+      datetime2: format(new Date(), 'YYYY-MM-DD HH:mm:ss'),
+      converter: undefined
     }
   }
 }

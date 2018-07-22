@@ -4,12 +4,10 @@
 
 ## Install
 
-`vue-timeago` uses `date-fns/distance_in_words_to_now` under the hood:
-
 ```bash
-yarn add date-fns vue-timeago
+yarn add vue-timeago
 # or
-npm i date-fns vue-timeago
+npm i vue-timeago
 ```
 
 CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/vue-timeago/dist/) (available as `window.VueTimeago`)
@@ -21,7 +19,9 @@ import VueTimeago from 'vue-timeago'
 
 Vue.use(VueTimeago, {
   name: 'Timeago', // Component name, `Timeago` by default
-  locale: undefined, // Default locale
+  locale: 'en', // Default locale
+  // We use `date-fns` under the hood
+  // So you can use all locales from it
   locales: {
     'zh-CN': require('date-fns/locale/zh_cn'),
     'ja': require('date-fns/locale/ja'),
@@ -34,48 +34,84 @@ Then in your lovely component:
 ```html
 <!-- simple usage -->
 <!-- time is a dateString that can be parsed by Date.parse() -->
-<timeago :since="time"></timeago>
+<timeago :datetime="time"></timeago>
 
 <!-- Auto-update time every 60 seconds -->
-<timeago :since="time" :auto-update="60"></timeago>
+<timeago :datetime="time" :auto-update="60"></timeago>
 
 <!-- custom locale -->
 <!-- use a different locale instead of the global config -->
-<timeago :since="time" locale="zh-CN"></timeago>
+<timeago :datetime="time" locale="zh-CN"></timeago>
 ```
 
-## API
+## Plugin options
 
-### props
+```js
+Vue.use(VueTimeago, pluginOptions)
+```
 
-#### since
+### locales
+
+- __Type__: `{ [localeName: string]: any }`
+
+An object of locales.
+
+### locale
+
+- __Type__: `string`
+
+The default locale name.
+
+### converter
+
+- __Type__: `(date, locale, converterOptions) => string`
+
+A `converter` that formats regular dates in `xxx ago` or `in xxx` style.
+
+Check out our [default converter](./src/converter.js) which uses [date-fns/distance_in_words_to_now](https://date-fns.org/v1.29.0/docs/distanceInWordsToNow) under the hood.
+
+### converterOptions
+
+- __Type__: `Object`
+
+Provide an object which will be available as argument `converterOptions` in the `converter` we mentioned above.
+
+Our default converter supports most options that [date-fns/distance_in_words_to_now](https://date-fns.org/v1.29.0/docs/distanceInWordsToNow) library supports, namely:
+
+- __includeSeconds__: (default: `false`) distances less than a minute are more detailed
+- __addSuffix__: (default: `true`) result specifies if the second date is earlier or later than the first
+
+## props
+
+### datetime
 
 - __Type__: `Date` `string` `number`
 - __Required__: `true`
 
-The given date.
+The datetime to be formatted .
 
-#### autoUpdate
+### autoUpdate
 
-- __Type__: `number`
+- __Type__: `number` `boolean`
 - __Default__: `false`
 
 The period to update the component, in **seconds**.
 
-You can omit this prop or set it to `0` to disable auto-update.
+You can omit this prop or set it to `0` or `false` to disable auto-update.
 
-#### locale
+When `true` it will be equivalent to `60`.
 
-- __Type__: `string`
+### locale
 
-Use a custom locale.
+Just like the `locale` option in the plugin options, but this could override the global one.
 
-#### includeSeconds
+### converter
 
-- __Type__: `boolean`
-- __Default__: `false`
+Just like the `converter` option in the plugin options, but this could override the global one.
 
-Distances less than a minute are more detailed
+### converterOptions
+
+Just like the `converterOptions` option in the plugin options, but this could override the global one.
 
 ## What about the good old [vue-timeago v3](https://github.com/egoist/vue-timeago/tree/3)?
 

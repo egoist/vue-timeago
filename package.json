@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "xo && npm run build",
-    "build": "bili src/index.js --format umd,cjs,es --exports named --module-name VueTimeago",
+    "build": "bili src/index.js --format umd,cjs,es,umd-min --exports named --module-name VueTimeago",
     "prepublishOnly": "npm run build",
     "example": "poi example/index.js"
   },
@@ -32,7 +32,6 @@
   ],
   "devDependencies": {
     "bili": "^3.1.1",
-    "date-fns": "^1.29.0",
     "eslint-config-rem": "^4.0.0",
     "gh-pages": "^1.0.0",
     "poi": "^10.1.6",
@@ -45,8 +44,7 @@
       "example/**"
     ]
   },
-  "dependencies": {},
-  "peerDependencies": {
+  "dependencies": {
     "date-fns": "^1.29.0"
   }
 }

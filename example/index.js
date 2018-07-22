@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Timeago from '../src'
 import App from './App.vue'
+import converter from '../src/converters/date-fns'
 
 const r = require.context('date-fns/locale', true, /^\.\/([\w\_]+)\/index\.js/)
 const locales = {}
@@ -10,7 +11,8 @@ r.keys().forEach(v => {
 })
 
 Vue.use(Timeago, {
-  locales
+  locales,
+  converter
 })
 
 new Vue({

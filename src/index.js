@@ -1,4 +1,4 @@
-import toNow from 'date-fns/distance_in_words_to_now'
+import defaultConverter from './converter'
 
 export const createTimeago = (opts = {}) => {
   const locales = opts.locales || {}
@@ -8,7 +8,7 @@ export const createTimeago = (opts = {}) => {
     name,
 
     props: {
-      since: {
+      datetime: {
         required: true
       },
       title: {
@@ -18,16 +18,19 @@ export const createTimeago = (opts = {}) => {
         type: String
       },
       autoUpdate: {
-        type: Number
+        type: [Number, Boolean]
       },
-      includeSeconds: {
-        type: Boolean
+      converter: {
+        type: Function
+      },
+      converterOptions: {
+        type: Object
       }
     },
 
     data() {
       return {
-        timeago: this.convert(this.since)
+        timeago: this.getTimeago()
       }
     },
 
@@ -44,7 +47,7 @@ export const createTimeago = (opts = {}) => {
         'time',
         {
           attrs: {
-            datetime: new Date(this.since),
+            datetime: new Date(this.datetime),
             title:
               typeof this.title === 'string' ?
                 this.title :
@@ -58,19 +61,21 @@ export const createTimeago = (opts = {}) => {
     },
 
     methods: {
-      convert(date) {
-        return toNow(date, {
-          addSuffix: true,
-          locale: locales[this.locale || opts.locale],
-          includeSeconds: this.includeSeconds
-        })
+      getTimeago(datetime) {
+        const converter = this.converter || opts.converter || defaultConverter
+        return converter(datetime || this.datetime, locales[this.locale || opts.locale], this.converterOptions || {})
+      },
+
+      convert(datetime) {
+        this.timeago = this.getTimeago(datetime)
       },
 
       startUpdater() {
         if (this.autoUpdate) {
+          const autoUpdaye = this.autoUpdate === true ? 60 : this.autoUpdate
           this.updater = setInterval(() => {
-            this.timeago = this.convert(this.since)
-          }, this.autoUpdate * 1000)
+            this.convert()
+          }, autoUpdaye * 1000)
         }
       },
 
@@ -90,8 +95,20 @@ export const createTimeago = (opts = {}) => {
         }
       },
 
-      since(newValue) {
-        this.timeago = this.convert(newValue)
+      datetime() {
+        this.convert()
+      },
+      locale() {
+        this.convert()
+      },
+      converter() {
+        this.convert()
+      },
+      converterOptions: {
+        handler() {
+          this.convert()
+        },
+        deep: true
       }
     }
   }
