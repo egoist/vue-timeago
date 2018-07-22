@@ -119,4 +119,6 @@ export const install = (Vue, opts) => {
   Vue.component(Component.name, Component)
 }
 
+export const converter = defaultConverter
+
 export default install
