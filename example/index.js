@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Timeago from '../src'
-import App from './App.vue'
-import converter from '../src/converters/date-fns'
+import App from './app.vue'
+import converter from '../src/converter'
 
 const r = require.context('date-fns/locale', true, /^\.\/([\w\_]+)\/index\.js/)
 const locales = {}
