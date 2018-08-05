@@ -33,7 +33,7 @@ Vue.use(VueTimeago, {
 
 Then in your lovely component:
 
-```html
+```vue
 <!-- simple usage -->
 <!-- time is a dateString that can be parsed by Date.parse() -->
 <timeago :datetime="time"></timeago>
