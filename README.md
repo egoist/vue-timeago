@@ -17,18 +17,18 @@ CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdel
 For usages on version 4, please check out [this branch](https://github.com/egoist/vue-timeago/tree/4).
 
 ```js
-import VueTimeago from "vue-timeago";
+import VueTimeago from 'vue-timeago'
 
 Vue.use(VueTimeago, {
-  name: "Timeago", // Component name, `Timeago` by default
-  locale: "en", // Default locale
+  name: 'Timeago', // Component name, `Timeago` by default
+  locale: 'en', // Default locale
   // We use `date-fns` under the hood
   // So you can use all locales from it
   locales: {
-    "zh-CN": require("date-fns/locale/zh_cn"),
-    ja: require("date-fns/locale/ja")
+    'zh-CN': require('date-fns/locale/zh_cn'),
+    ja: require('date-fns/locale/ja')
   }
-});
+})
 ```
 
 Then in your lovely component:
@@ -49,7 +49,7 @@ Then in your lovely component:
 ## Plugin options
 
 ```js
-Vue.use(VueTimeago, pluginOptions);
+Vue.use(VueTimeago, pluginOptions)
 ```
 
 ### locales
@@ -121,11 +121,11 @@ Just like the `converterOptions` option in the plugin options, but this could ov
 
 ```js
 Vue.use(VueTimeago, {
-  locale: "en",
+  locale: 'en',
   locales: {
-    "zh-CN": require("date-fns/locale/zh_cn")
+    'zh-CN': require('date-fns/locale/zh_cn')
   }
-});
+})
 ```
 
 In your components you can use `this.$timeago.locale` to access the global locale, in this case it's `en`, the `<timeago>` component will get updated when you set it to another valid locale, e.g. `this.$timeago.locale = 'zh-CN'`.
