@@ -8,22 +8,21 @@
   "author": {
     "name": "EGOIST",
     "email": "0x142857@gmail.com",
-    "url": "github.com/egoist"
+    "url": "https://github.com/egoist"
   },
   "scripts": {
     "test": "xo && npm run build",
-    "build": "bili src/index.js --format umd,cjs,es,umd-min --exports named --module-name VueTimeago",
+    "build": "bili",
     "prepublishOnly": "npm run build",
-    "example": "poi example/index.js"
+    "example": "poi example/index.js -so"
   },
   "main": "dist/vue-timeago.cjs.js",
   "module": "dist/vue-timeago.es.js",
   "unpkg": "dist/vue-timeago.js",
-  "cdn": "dist/vue-timeago.js",
   "jsdelivr": "dist/vue-timeago.js",
+  "cdn": "dist/vue-timeago.js",
   "files": [
-    "dist",
-    "locales"
+    "dist"
   ],
   "keywords": [
     "timeago",
@@ -31,12 +30,14 @@
     "filter"
   ],
   "devDependencies": {
-    "bili": "^3.1.1",
+    "bili": "^4.5.2",
     "eslint-config-rem": "^4.0.0",
     "gh-pages": "^1.0.0",
-    "poi": "^10.1.6",
-    "postcss-nested": "^1.0.0",
-    "xo": "^0.21.0"
+    "poi": "^12.5.6",
+    "postcss-nested": "^4.1.2",
+    "vue": "^2.6.9",
+    "vue-template-compiler": "^2.6.9",
+    "xo": "^0.24.0"
   },
   "xo": {
     "extends": "rem",
