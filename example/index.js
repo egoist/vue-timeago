@@ -18,9 +18,10 @@ Vue.use(Timeago, {
 
 new Vue({
   el: '#app',
-  render: h => h(App, {
-    props: {
-      localeNames: Object.keys(locales)
-    }
-  })
+  render: h =>
+    h(App, {
+      props: {
+        localeNames: Object.keys(locales)
+      }
+    })
 })

@@ -1,8 +1,8 @@
-import defaultConverter from "./converter";
+import defaultConverter from './converter'
 
 export const createTimeago = (opts = {}) => {
-  const locales = opts.locales || {};
-  const name = opts.name || "Timeago";
+  const locales = opts.locales || {}
+  const name = opts.name || 'Timeago'
 
   return {
     name,
@@ -31,31 +31,31 @@ export const createTimeago = (opts = {}) => {
     data() {
       return {
         timeago: this.getTimeago()
-      };
+      }
     },
 
     computed: {
       localeName() {
-        return this.locale || this.$timeago.locale;
+        return this.locale || this.$timeago.locale
       }
     },
 
     mounted() {
-      this.startUpdater();
+      this.startUpdater()
     },
 
     beforeDestroy() {
-      this.stopUpdater();
+      this.stopUpdater()
     },
 
     render(h) {
       return h(
-        "time",
+        'time',
         {
           attrs: {
             datetime: new Date(this.datetime),
             title:
-              typeof this.title === "string"
+              typeof this.title === 'string'
                 ? this.title
                 : this.title === false
                 ? null
@@ -63,87 +63,87 @@ export const createTimeago = (opts = {}) => {
           }
         },
         [this.timeago]
-      );
+      )
     },
 
     methods: {
       getTimeago(datetime) {
-        const converter = this.converter || opts.converter || defaultConverter;
+        const converter = this.converter || opts.converter || defaultConverter
         return converter(
           datetime || this.datetime,
           locales[this.localeName],
           this.converterOptions || {}
-        );
+        )
       },
 
       convert(datetime) {
-        this.timeago = this.getTimeago(datetime);
+        this.timeago = this.getTimeago(datetime)
       },
 
       startUpdater() {
         if (this.autoUpdate) {
-          const autoUpdaye = this.autoUpdate === true ? 60 : this.autoUpdate;
+          const autoUpdaye = this.autoUpdate === true ? 60 : this.autoUpdate
           this.updater = setInterval(() => {
-            this.convert();
-          }, autoUpdaye * 1000);
+            this.convert()
+          }, autoUpdaye * 1000)
         }
       },
 
       stopUpdater() {
         if (this.updater) {
-          clearInterval(this.updater);
-          this.updater = null;
+          clearInterval(this.updater)
+          this.updater = null
         }
       }
     },
 
     watch: {
       autoUpdate(newValue) {
-        this.stopUpdater();
+        this.stopUpdater()
         if (newValue) {
-          this.startUpdater();
+          this.startUpdater()
         }
       },
 
       datetime() {
-        this.convert();
+        this.convert()
       },
       localeName() {
-        this.convert();
+        this.convert()
       },
       converter() {
-        this.convert();
+        this.convert()
       },
       converterOptions: {
         handler() {
-          this.convert();
+          this.convert()
         },
         deep: true
       }
     }
-  };
-};
+  }
+}
 
 export const install = (Vue, opts) => {
   if (Vue.prototype.$timeago) {
-    return;
+    return
   }
 
-  if (process.env.NODE_ENV === "development" && !Vue.observable) {
-    console.warn(`[vue-timeago] Vue 2.6 or above is recommended.`);
+  if (process.env.NODE_ENV === 'development' && !Vue.observable) {
+    console.warn(`[vue-timeago] Vue 2.6 or above is recommended.`)
   }
 
   const $timeago = {
     locale: opts.locale
-  };
+  }
   Vue.prototype.$timeago = Vue.observable
     ? Vue.observable($timeago)
-    : new Vue({ data: $timeago });
+    : new Vue({ data: $timeago })
 
-  const Component = createTimeago(opts);
-  Vue.component(Component.name, Component);
-};
+  const Component = createTimeago(opts)
+  Vue.component(Component.name, Component)
+}
 
-export const converter = defaultConverter;
+export const converter = defaultConverter
 
-export default install;
+export default install
