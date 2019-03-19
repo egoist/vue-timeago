@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <select v-model="locale">
-        <option value="en">en</option>
+      <select v-model="$timeago.locale">
         <option
           v-for="name of localeNames"
           :key="name"
@@ -13,10 +12,10 @@
     </div>
     <div class="main">
       <input type="text" v-model="datetime1">
-      <timeago :datetime="datetime1" :locale="locale" :converter="converter" />
+      <timeago :datetime="datetime1" :converter="converter" />
       <hr>
       <input type="text" v-model="datetime2">
-      <timeago :datetime="datetime2" :locale="locale" :autoUpdate="autoUpdate ? 1 : 0" :converterOptions="{ includeSeconds: true }" /> <input type="checkbox" v-model="autoUpdate"> Auto Update in every second
+      <timeago :datetime="datetime2" :autoUpdate="autoUpdate ? 1 : 0" :converterOptions="{ includeSeconds: true }" /> <input type="checkbox" v-model="autoUpdate"> Auto Update in every second
     </div>
   </div>
 </template>
@@ -29,7 +28,6 @@ export default {
 
   data() {
     return {
-      locale: 'en',
       autoUpdate: false,
       datetime1: '2022-02-12',
       datetime2: format(new Date(), 'YYYY-MM-DD HH:mm:ss'),

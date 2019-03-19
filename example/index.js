@@ -11,6 +11,7 @@ r.keys().forEach(v => {
 })
 
 Vue.use(Timeago, {
+  locale: 'en',
   locales,
   converter
 })

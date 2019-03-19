@@ -17,18 +17,18 @@ CDN: [UNPKG](https://unpkg.com/vue-timeago/dist/) | [jsDelivr](https://cdn.jsdel
 For usages on version 4, please check out [this branch](https://github.com/egoist/vue-timeago/tree/4).
 
 ```js
-import VueTimeago from 'vue-timeago'
+import VueTimeago from "vue-timeago";
 
 Vue.use(VueTimeago, {
-  name: 'Timeago', // Component name, `Timeago` by default
-  locale: 'en', // Default locale
+  name: "Timeago", // Component name, `Timeago` by default
+  locale: "en", // Default locale
   // We use `date-fns` under the hood
   // So you can use all locales from it
   locales: {
-    'zh-CN': require('date-fns/locale/zh_cn'),
-    'ja': require('date-fns/locale/ja'),
+    "zh-CN": require("date-fns/locale/zh_cn"),
+    ja: require("date-fns/locale/ja")
   }
-})
+});
 ```
 
 Then in your lovely component:
@@ -49,24 +49,24 @@ Then in your lovely component:
 ## Plugin options
 
 ```js
-Vue.use(VueTimeago, pluginOptions)
+Vue.use(VueTimeago, pluginOptions);
 ```
 
 ### locales
 
-- __Type__: `{ [localeName: string]: any }`
+- **Type**: `{ [localeName: string]: any }`
 
 An object of locales.
 
 ### locale
 
-- __Type__: `string`
+- **Type**: `string`
 
 The default locale name.
 
 ### converter
 
-- __Type__: `(date, locale, converterOptions) => string`
+- **Type**: `(date, locale, converterOptions) => string`
 
 A `converter` that formats regular dates in `xxx ago` or `in xxx` style.
 
@@ -74,28 +74,28 @@ Check out our [default converter](./src/converter.js) which uses [date-fns/dista
 
 ### converterOptions
 
-- __Type__: `Object`
+- **Type**: `Object`
 
 Provide an object which will be available as argument `converterOptions` in the `converter` we mentioned above.
 
 Our default converter supports most options that [date-fns/distance_in_words_to_now](https://date-fns.org/v1.29.0/docs/distanceInWordsToNow) library supports, namely:
 
-- __includeSeconds__: (default: `false`) distances less than a minute are more detailed
-- __addSuffix__: (default: `true`) result specifies if the second date is earlier or later than the first
+- **includeSeconds**: (default: `false`) distances less than a minute are more detailed
+- **addSuffix**: (default: `true`) result specifies if the second date is earlier or later than the first
 
 ## props
 
 ### datetime
 
-- __Type__: `Date` `string` `number`
-- __Required__: `true`
+- **Type**: `Date` `string` `number`
+- **Required**: `true`
 
 The datetime to be formatted .
 
 ### autoUpdate
 
-- __Type__: `number` `boolean`
-- __Default__: `false`
+- **Type**: `number` `boolean`
+- **Default**: `false`
 
 The period to update the component, in **seconds**.
 
@@ -114,6 +114,21 @@ Just like the `converter` option in the plugin options, but this could override 
 ### converterOptions
 
 Just like the `converterOptions` option in the plugin options, but this could override the global one.
+
+## Recipes
+
+### Update Locale Globally
+
+```js
+Vue.use(VueTimeago, {
+  locale: "en",
+  locales: {
+    "zh-CN": require("date-fns/locale/zh_cn")
+  }
+});
+```
+
+In your components you can use `this.$timeago.locale` to access the global locale, in this case it's `en`, the `<timeago>` component will get updated when you set it to another valid locale, e.g. `this.$timeago.locale = 'zh-CN'`.
 
 ## What about the good old [vue-timeago v3](https://github.com/egoist/vue-timeago/tree/3)?
 
@@ -134,5 +149,3 @@ yarn build
 ## License
 
 MIT © [EGOIST](https://github.com/egoist)
-
-
