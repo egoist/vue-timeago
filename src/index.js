@@ -71,7 +71,7 @@ export const createTimeago = (opts = {}) => {
         const converter = this.converter || opts.converter || defaultConverter
         return converter(
           datetime || this.datetime,
-          locales[this.localeName],
+          locales[this.locale || this.$timeago.locale],
           this.converterOptions || {}
         )
       },
