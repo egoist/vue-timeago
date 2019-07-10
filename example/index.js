@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Timeago from '../src'
-import App from './app.vue'
+import App from './App.vue'
 import converter from '../src/converter'
+import 'typeface-nunito/index.css'
 
 const r = require.context('date-fns/locale', true, /^\.\/([\w\_]+)\/index\.js/)
 const locales = {}
