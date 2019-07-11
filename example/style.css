@@ -1,0 +1,21 @@
+.box {
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.box:before {
+  display: block;
+  content: attr(data-title);
+  position: absolute;
+  top: 0;
+  left: 20px;
+  transform: translateY(-50%);
+  background: white;
+  color: #999;
+  padding: 0 5px;
+  font-size: 14px;
+}

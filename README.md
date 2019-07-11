@@ -70,7 +70,7 @@ The default locale name.
 
 A `converter` that formats regular dates in `xxx ago` or `in xxx` style.
 
-Check out our [default converter](./src/converter.js) which uses [date-fns/distance_in_words_to_now](https://date-fns.org/v1.29.0/docs/distanceInWordsToNow) under the hood.
+Check out our [default converter](https://github.com/egoist/vue-timeago/blob/master/src/converter.js) which uses [date-fns/distance_in_words_to_now](https://date-fns.org/v1.29.0/docs/distanceInWordsToNow) under the hood.
 
 ### converterOptions
 

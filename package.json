@@ -30,9 +30,11 @@
     "filter"
   ],
   "devDependencies": {
+    "@egoist/vue-to-react": "^1.1.0",
     "bili": "^4.7.0",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
+    "demoboard": "^0.3.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-rem": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
@@ -42,6 +44,7 @@
     "poi": "^12.5.6",
     "postcss-nested": "^4.1.2",
     "prettier": "^1.16.4",
+    "raw-loader": "^3.0.0",
     "semantic-release": "^15.13.3",
     "vue": "^2.6.9",
     "vue-template-compiler": "^2.6.9",
