@@ -26,7 +26,7 @@ export default {
 </script>
 
 <readme>
-You can use a custom converter to convert machine time to human-reabable time:
+You can use a custom converter to control how machine time is converted to human-readable time:
 
 ```html
 <template>
