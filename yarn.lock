@@ -3237,10 +3237,10 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
-demoboard@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/demoboard/-/demoboard-0.3.0.tgz#b1a1c2e37284a14ec3f0eec2be605a2040efb97c"
-  integrity sha512-T5HEeIoxIVpn8mHoz1l7fY9u5hprHrmxj50ec3rrPqmsNAm3h8p/cfikUFprWxDifTDIvN6Nu/1g1fQ8h4LlNQ==
+demoboard@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/demoboard/-/demoboard-0.3.1.tgz#ecb68fc3132f599de751b89e2b0d245766122444"
+  integrity sha512-rdEH9dYnNpw8yiPR9HqsffbOYGxqSY0aypiqdw2mtxBItl2T0jpvmBxF8/SnkD5Js8XV7BbLpVehb1hYx64o+A==
   dependencies:
     "@emotion/core" "^10.0.14"
     prism-react-renderer "^0.1.7"
