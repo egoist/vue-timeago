@@ -3,6 +3,7 @@ import defaultConverter from './converter'
 export const createTimeago = (opts = {}) => {
   const locales = opts.locales || {}
   const name = opts.name || 'Timeago'
+  const pluginConverterOptions = opts.converterOptions || {};
 
   return {
     name,
@@ -72,7 +73,7 @@ export const createTimeago = (opts = {}) => {
         return converter(
           datetime || this.datetime,
           locales[this.locale || this.$timeago.locale],
-          {...opts.converterOptions,...this.converterOptions}
+          {...this.pluginConverterOptions,...this.converterOptions}
         )
       },
 
