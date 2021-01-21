@@ -53,7 +53,7 @@ export const createTimeago = (opts = {}) => {
         'time',
         {
           attrs: {
-            datetime: new Date(this.datetime),
+            datetime: new Date(this.datetime).toISOString(),
             title:
               typeof this.title === 'string'
                 ? this.title
